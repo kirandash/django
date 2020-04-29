@@ -13,8 +13,24 @@ class Daily_Specials_Plugin(CMSPluginBase):
             'image': instance.image,
             'description': instance.description,
             'url': instance.url
-        }) # typing instance of plugin with template
+        }) # tying instance of plugin with template
+        return context
+
+class Menu_Item_Plugin(CMSPluginBase):
+    model = Menu_Item # Using the Menu_Item model which we created in models.py file
+    name = "Menu Item" # User friendly name to show in admin
+    render_template = "menu_item.html" # Template to which the plugin will render
+
+    def render(self, context, instance, placeholder):
+        context.update({
+            'name': instance.name,
+            'image': instance.image,
+            'price': instance.price,
+            'description': instance.description,
+            'url': instance.url
+        }) # tying instance of plugin with template
         return context
 
 # Registering our plugin
 plugin_pool.register_plugin(Daily_Specials_Plugin)
+plugin_pool.register_plugin(Menu_Item_Plugin)

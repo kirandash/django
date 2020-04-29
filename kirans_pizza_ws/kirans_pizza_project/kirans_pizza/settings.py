@@ -219,16 +219,23 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 CMS_PERMISSION = True
 
 CMS_PLACEHOLDER_CONF = {
-    'daily_specials': {
+    'daily_specials': { # placeholder name as defined in home.html file
         'name': 'Daily Specials', # Name of Content Area
-        'plugins': ['Daily_Specials_Plugin'], # List of plugins allowed for daily_specials content area
+        'plugins': ['Daily_Specials_Plugin'], # List of plugins allowed for daily_specials content area. Plugin name as defined in cms_plugins.py file
         'plugin_labels': {
-            'Daily_Specials_Plugin': 'Add Daily Special'
+            'Daily_Specials_Plugin': 'Add Daily Special' # Plugin label to show in CMS
         }, # Label for Plugins
         'limits': {
-            'global': 1, # only 1 of every kind of plugin will be allowed in this section
+            'global': 1, # only 1 of every kind of plugin will be allowed in this section. In our case only one Daily specials can be added.
         }
-    } # daily_specials content area
+    }, # daily_specials content area
+    'menus': { # placeholder name as defined in home.html file
+        'name': 'Menu Items', # Name of Content Area
+        'plugins': ['Menu_Item_Plugin'], # List of plugins allowed for daily_specials content area. Plugin name as defined in cms_plugins.py file
+        'plugin_labels': {
+            'Menu_Item_Plugin': 'Add Menu Item' # Plugin label to show in CMS
+        }, # Label for Plugins. Note: There is no limit to number of menus we want to display
+    }, # menu_items content area
 }
 
 DATABASES = {

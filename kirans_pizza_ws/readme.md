@@ -120,3 +120,16 @@
 ### 3.5 Restricting Numbers of Plugins in Content Area
 1. Add `limits` to `CMS_PLACEHOLDER_CONF`
 2. Now refresh on FE and try to add new plugin. Daily Specials Content will not accept. Note: Previous data will retain.
+
+### 3.6 Building a Second Plugin - For Menu Items
+1. Create a plugin for menu item.
+2. Go to `kirans_pizza_plugins/models.py` file. 
+3. After adding code for new models. Run migrations
+4. `python3 manage.py makemigrations`: will create a migration file for our app kirans_pizza_plugins
+5. `python3 manage.py migrate`: will create tables in our Database
+6. Create Menu_Item class extending from CMSPlugin
+7. Open cms_plugins.py file for the view.
+8. Add Menu_Items_Plugin class to tie Plugin with template
+9. Create menu_item.html file.
+10. Go to base app settings file: `kirans_pizza_plugins/settings.py`: 
+11. Add configuration in `CMS_PLACEHOLDER_CONF` for Menu_Item Plugin.
