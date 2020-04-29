@@ -32,6 +32,7 @@
 2. `mkdir kirans_pizza`. Project folder
 3. `cd kirans_pizza`
 4. `djangocms -p . kirans_pizza`: p = parent directory, . = install in current directory
+5. Rename parent folder to `kirans_pizza_project` to avoid confusion with the app name `kirans_pizza`
 
 ### 1.5 Run Django Server
 1. From manage.py path: Run `python3 manage.py runserver`
