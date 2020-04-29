@@ -97,3 +97,16 @@
 5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
 6. **tests.py**: Can add unit test for testing this app.
 7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
+
+### 3.2 Building Plugin - Contd
+1. Create model by extending CMSPlugin instead of models.Model like we do in Django.
+2. After adding code for new models. Run migrations
+3. `python3 manage.py makemigrations`: will create a migration file for our app kirans_pizza_plugins
+4. `python3 manage.py migrate`: will create tables in our Database
+5. In cms views file are identified as `cms_plugins.py` file. Rename `kirans_pizza_plugins/views.py`to `cms_plugins.py`. Remove all default code and add code for our CMS view.
+6. Create templates folder in our plugin app `kirans_pizza_plugins`. Create file `daily_special.html`
+
+### 3.3 Use plugin under Daily Specials content
+1. Refresh http://127.0.0.1:8000/en/
+2. ?edit view
+3. Go to Structured view and under Daily specials content add Daily Specials Plugin. Add all the details, save and publish to see the result on home page.
