@@ -157,3 +157,17 @@
 7. open `blogs/views.py` and define views for post, category, blog
 8. Create `blog/urls.py` file: specific to blog app. And add urlpatterns
 9. Create folder `blog/templates` for our 3 views. blog.html, category.html and post.html.
+
+### 4.3 Create the Apphook
+1. Create a file in blog app: `blog/cms_apps.py`
+2. Extend BlogApp from CMSApp
+3. Restart server
+4. Go to : http://127.0.0.1:8000/en/?edit
+5. Click on Create to make a new page: Blog. Save and Publish.
+6. Reload page. Go to Page ---> Advanced Settings ---> Under Applications List select "Blog" and Save and Publish.
+7. Now: all the urls of our blog app will appear after /blog
+8. To setup some data: lets create some categories and posts. Go to example.com ---> Administration ---> Categorys ---> Add
+9. Also create a new post and assign to general category. save
+10. Now visit: http://127.0.0.1:8000/en/blog/ to see all the blog posts on frontend. 
+11. We can click on title to visit detail view
+12. Or visit http://127.0.0.1:8000/en/blog/category/1/ for category page.
