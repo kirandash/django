@@ -171,3 +171,9 @@
 10. Now visit: http://127.0.0.1:8000/en/blog/ to see all the blog posts on frontend. 
 11. We can click on title to visit detail view
 12. Or visit http://127.0.0.1:8000/en/blog/category/1/ for category page.
+
+### 4.4 Extend the Django CMS Toolbar
+1. Create a file in blog app: `cms_toolbars.py`
+2. Create and Register PostToolbar, CategoryToolbar
+3. Restart devserver
+4. Reload browser and now we can see the blog menu option in toolbar. Thus, direct access to blog.
