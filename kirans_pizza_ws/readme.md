@@ -75,3 +75,11 @@
 2. Create main.css file.
 3. Link css file to base.html file `<link rel="stylesheet" href="{% static 'css/main.css' %}">`
 4. load static in base.html file to be able to access static files viz. css
+
+### 2.7 Static Placeholders for Logo and Footer
+1. Static placeholder is common to all pages. Viz: Logo, Footer etc. Add static placeholders for logo and footer in base.html. 
+2. Go to browser and on reload we can see the new placeholders in structure view.
+3. Pin indicates a static placeholder.
+4. In structure view, add Picture/Image plugin to Logo static placeholder. - Add image: set width and save.
+5. Check logo in content view.
+6. Add Text Plugin to Footer.
