@@ -46,12 +46,25 @@
 
 ### 2.2 Add Plugins to Home Page
 1. On edit mode for home page: http://127.0.0.1:8000/en/?edit
-2. Click on menu on top right corner to see all contents.
+2. Click on Structure icon on top right corner to see all contents.
 3. Click on Plus icon to Add a new Text plugin
-4. To edit existing content: either double click or open from content menu on top right corner.
+4. To edit existing content: either double click or open from Structure menu on top right corner.
 
 ### 2.3 Creating Page Template 
 1. `kirans_pizza/kirans_pizza/templates`: Templates Folder with starter files:
     - base.html, fullwidth.html, sidebar_left.html and sidebar_right.html
     - base.html is the main file from which all the other pages are extended.
 2. Create new page template `home.html` for home page. copy content from sidebar_left.html
+
+### 2.4 Creating Placeholders and register template
+1. home.html, create placeholder for daily_specials and menus
+2. Register home.html template in `kirans_pizza/settings.py` file. Under `CMS_TEMPLATES` truple. So when we create a new page we can now select this new template.
+
+### 2.5 Assign Template to Page
+1. Refresh http://127.0.0.1:8000/en/?edit
+2. Page ---> Templates ---> Home. Click on Home to apply home template to home page.
+3. Click on Structure icon on top right corner to see the two new content areas.
+    - Daily_Specials
+    - Menus
+4. Add Text plugin to Daily_Specials content area.
+5. Add Text Plugin to Menu content area.
