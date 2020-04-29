@@ -110,3 +110,9 @@
 1. Refresh http://127.0.0.1:8000/en/
 2. ?edit view
 3. Go to Structured view and under Daily specials content add Daily Specials Plugin. Add all the details, save and publish to see the result on home page.
+
+### 3.4 Defining CMS Placeholder Configuration
+**Restricting Types of Plugins in Content Area**:
+1. Now on our website, the Daily Specials content area has all plugins available to add. But we would like to restrict it to only allow Daily_Specials plugin in the list. So that user does not accidentally add any other content to this area.
+2. Go to base app settings file: `kirans_pizza_plugins/settings.py`: 
+3. Add configuration to CMS_PLACEHOLDER_CONF.

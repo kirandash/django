@@ -218,7 +218,15 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CMS_PERMISSION = True
 
-CMS_PLACEHOLDER_CONF = {}
+CMS_PLACEHOLDER_CONF = {
+    'daily_specials': {
+        'name': 'Daily Specials', # Name of Content Area
+        'plugins': ['Daily_Specials_Plugin'], # List of plugins allowed for daily_specials content area
+        'plugin_labels': {
+            'Daily_Specials_Plugin': 'Add Daily Special'
+        }, # Label for Plugins
+    } # daily_specials content area
+}
 
 DATABASES = {
     'default': {
