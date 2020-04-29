@@ -179,7 +179,8 @@ INSTALLED_APPS = [
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
-    'kirans_pizza'
+    'kirans_pizza',
+    'kirans_pizza_plugins',
 ]
 
 LANGUAGES = (
