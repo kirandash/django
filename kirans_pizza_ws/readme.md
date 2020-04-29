@@ -43,3 +43,8 @@
 2. Note: we can login from any page in future using `?edit` in url.
 3. Click on New Page and Next.
 4. Enter title, slug and content and save.
+
+### 2.2 Add Plugins to Home Page
+1. On edit mode for home page: http://127.0.0.1:8000/en/?edit
+2. Click on menu on top right corner to see all contents.
+3. Click on Plus icon to Add a new Text plugin
