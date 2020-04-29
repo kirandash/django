@@ -69,3 +69,9 @@
     - Menus
 4. Add Text plugin to Daily_Specials content area.
 5. Add Text Plugin to Menu content area.
+
+### 2.6 Add Styling
+1. Create css folder in kirans_pizza/static/.
+2. Create main.css file.
+3. Link css file to base.html file `<link rel="stylesheet" href="{% static 'css/main.css' %}">`
+4. load static in base.html file to be able to access static files viz. css
