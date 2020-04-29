@@ -115,4 +115,8 @@
 **Restricting Types of Plugins in Content Area**:
 1. Now on our website, the Daily Specials content area has all plugins available to add. But we would like to restrict it to only allow Daily_Specials plugin in the list. So that user does not accidentally add any other content to this area.
 2. Go to base app settings file: `kirans_pizza_plugins/settings.py`: 
-3. Add configuration to CMS_PLACEHOLDER_CONF.
+3. Add configuration to `CMS_PLACEHOLDER_CONF`.
+
+### 3.5 Restricting Numbers of Plugins in Content Area
+1. Add `limits` to `CMS_PLACEHOLDER_CONF`
+2. Now refresh on FE and try to add new plugin. Daily Specials Content will not accept. Note: Previous data will retain.

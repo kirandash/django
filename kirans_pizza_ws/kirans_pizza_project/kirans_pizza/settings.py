@@ -225,6 +225,9 @@ CMS_PLACEHOLDER_CONF = {
         'plugin_labels': {
             'Daily_Specials_Plugin': 'Add Daily Special'
         }, # Label for Plugins
+        'limits': {
+            'global': 1, # only 1 of every kind of plugin will be allowed in this section
+        }
     } # daily_specials content area
 }
 
