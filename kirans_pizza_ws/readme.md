@@ -85,6 +85,13 @@
 6. Add Text Plugin to Footer.
 
 ## 3. Create Content Plugins
+### Intro
+1. We will learn:
+    - How to create custom plugins specific to site's needs
+    - How to restrict content placeholders to only allow custom plugins
+    - How to give plugin content structure in the HTML
+    - Styling
+
 ### 3.1 Building a Plugin
 1. From manage.py folder: Create a new app for plugins `python3 manage.py startapp kirans_pizza_plugins`
 2. Add new app to base app(kirans_pizza) settings file. Note: Make sure to add a trailing comma.
@@ -135,3 +142,12 @@
 11. Add configuration in `CMS_PLACEHOLDER_CONF` for Menu_Item Plugin.
 
 ### 3.7 Styling Plugins
+
+## 4. Apphooks
+### 4.1 Intro
+1. We will learn how to hook traditional Django apps or an existing Django application into Django CMS.
+
+### 4.2 Building a Django App
+1. Lets create a blog app where we will integrate our CMS.
+2. `python3 manage.py startapp blog`
+3. open models.py file for blog app.
