@@ -1,4 +1,6 @@
-<h1>{{ name }}</h1>
-<img src="{{ image.url }}" alt="{{ name }}" width='200'>
-<p>{{ description }}</p>
-<a href="{{ url }}">More...</a>
+<div id="daily_special">
+    <img src="{{ image.url }}" alt="{{ name }}" width='200' class="ds_elem">
+    <h1 class="ds_elem">{{ name }}</h1>
+    <p class="ds_elem">{{ description }}</p>
+    <a href="{{ url }}" class="ds_elem">More...</a>
+</div>

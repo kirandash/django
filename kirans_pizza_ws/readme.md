@@ -133,3 +133,5 @@
 9. Create menu_item.html file.
 10. Go to base app settings file: `kirans_pizza_plugins/settings.py`: 
 11. Add configuration in `CMS_PLACEHOLDER_CONF` for Menu_Item Plugin.
+
+### 3.7 Styling Plugins
