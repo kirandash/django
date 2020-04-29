@@ -147,7 +147,13 @@
 ### 4.1 Intro
 1. We will learn how to hook traditional Django apps or an existing Django application into Django CMS.
 
-### 4.2 Building a Django App
+### 4.2 Building a Django App for blog
 1. Lets create a blog app where we will integrate our CMS.
-2. `python3 manage.py startapp blog`
-3. open models.py file for blog app.
+2. `python3 manage.py startapp blog`. Add blog to list of installed apps in root app's settings.py file. `kirans_pizza_plugins/settings.py`
+3. open models.py file for blog app. And add Post, Category model by extending models.Model
+4. `python3 manage.py makemigrations blog`: will create a migration file for our app kirans_pizza_plugins
+5. `python3 manage.py migrate`: will create tables in our Database
+6. To show our new model in admin, we will have to add the model to `blog/admin.py`
+7. open `blogs/views.py` and define views for post, category, blog
+8. Create `blog/urls.py` file: specific to blog app. And add urlpatterns
+9. Create folder `blog/templates` for our 3 views. blog.html, category.html and post.html.
