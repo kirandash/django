@@ -15,7 +15,7 @@
 3. Content Management Options: WordPress, Drupal, Joomla, Magento, Ghost etc.
 4. WordPress is easy to learn and setup.
 5. Why Django CMS?
-    - Django CMS provides custom build content areas completely independent of one another. So instead of putting the entire content of a page in one content area, we can separate each section. Thus easy for website editor to change the content. While WordPress by default provides only one content area. But in WordPress too we can use an additional plugin called Advanced custom fields to create custom fields to enter content.
+    - **Custom Content Areas**: Django CMS provides custom build content areas completely independent of one another. So instead of putting the entire content of a page in one content area, we can separate each section. Thus easy for website editor to change the content. While WordPress by default provides only one content area. But in WordPress too we can use an additional plugin called Advanced custom fields to create custom fields to enter content.
     - Good for developers with experience on Django
     - Django CMS integrates Seamlessly with Django's additional functionality. Thus we get: Power of CMS + Data Processing Features from Django.
 
@@ -36,3 +36,10 @@
 ### 1.5 Run Django Server
 1. From manage.py path: Run `python3 manage.py runserver`
 2. Visit: http://127.0.0.1:8000/
+
+## 2. Page Templates and Placeholders
+### 2.1 Login and Page Creation
+1. First create a superuser to login as admin: `python3 manage.py createsuperuser`. Login with credentials.
+2. Note: we can login from any page in future using `?edit` in url.
+3. Click on New Page and Next.
+4. Enter title, slug and content and save.
