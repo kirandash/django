@@ -1,0 +1,95 @@
+# Scrum Board with Django and React
+## 1. Intro
+### 1.1 What we will learn
+1. **React**: 
+    - Client side
+    - Helps with User interaction
+    - Built with JS Programming language
+2. **Django**:
+    - Server Side
+    - Persistence
+    - Built with Python
+3. **Django REST Framework**
+    - Sending data to/from client and server
+    - Python
+
+**Topics**:
+1. Intro to React and Django
+2. Django and REST implementation
+3. React: Displaying and editing data
+4. Authorizing and Routing
+
+### 1.2 Prerequisites
+1. HTML
+2. JS
+3. Python
+4. Web/HTTP
+
+## 2. Django and React
+### 2.1 Django Intro
+1. Web Development framework
+2. Built with Python
+3. Helps us build websites quickly
+4. **Components**:
+    - MTV (Model, Template, View)
+    - **Model**: Python class used to store data in DB
+    - **View**: Component that handles request from browser. Gets request from browser ---> Retrieves data from DB ---> perform any logic if reqd ---> and then send the data to the template which can then be viewed on browser
+    - **Template**: Display data received from view in HTML
+    - **url conf**: urls.py file maps a particular url in browser with a view in django
+    - **Flow**: Client Browser(React) ---> HTTP ---> Django Server ---> urls.py ---> views.py <---> Model ---> Template ---> Client Browser
+
+### 2.2 React Intro
+1. JS based Web Development framework
+2. Helps building Rich Internet applications
+3. Client side Framework
+4. Components in React: View
+5. Redux for handling data
+6. Thunks for handling API calls
+7. Selectors: another layer between Redux and Thunks
+8. Styled Components: For better styling
+9. For communicating with Django: we will use **Django REST Framework** to make API calls.
+
+## 3. Setting up Django Project
+### 3.1 Install Python
+1. **Python**: https://www.python.org/downloads/. Current version: 3.8.2. 
+    - Python 3.x includes **venv** for project environment.
+    - Python 2.x uses **virtualenv** for project environment.
+2. Download the .pkg file and run installation. Or use brew: `brew install python3`. Brew: https://brew.sh/
+3. Check the version by typing `python3 --version`. (Python 3.8.2)
+5. Python3 installs pip3 script to mac automatically.
+
+### 3.2 Creating a Project Environment
+1. `python3 -m venv scrum_board_env`. Will create `scrum_board_env` venv folder for us.
+2. **Understanding venv folder structure**: `scrum_board_env`
+    - **bin/ Folder**: contains scripts to interact with dedicated executables eg: python, pip etc. Which means any command we run here: will only run in the venv instead of the system wide python. Also includes a file activate, which is used to activate our venv. 
+        - **Activate Virtual environment**: Run: `. scrum_board_env/bin/activate`. This will now launch the command line from venv. Can be identified as terminal starts with `(scrum_board_env)`. So now: python and pip command will run from the virtual environment. Ex: Run `python --version`: will return Python 3.8.2. If we run `python --version` in any other terminal, it will return Python 2.7.16 which is our global python installation. Globally we will have to run `python3 --version` to get python3 details.
+        - Similary if we run pip from venv to install any package, the package will be installed in venv only instead of system wide.
+        - **Deactivate venv**: Run `deactivate`. Now terminal will not show `(scrum_board_env)` anymore.
+    - **include/ Folder**: used to look up installed packages in our environments.
+        - Run: `pip list` in venv to check list of packages installed: will return pip, setuptools: the default packages in venv
+        - To check system wide packages, run: `pip list` outside of venv. The list should show more packages installed system wide.
+    - **lib/ Folder** used to look up installed packages in our environments.
+    - **pyvenv.cfg File**: To configure venv.
+
+### 3.3 Start a Django Project
+1. **Activate venv**: `. scrum_board_env/bin/activate`
+2. Check the terminal should prompt `(scrum_board_env)` in the beginning.
+3. **Install Django**: https://www.djangoproject.com/download/. Current version: 3.0.5
+4. `pip install django` (will install django 3.0.5 and pytz library which provides timezone support). Note this will be installed in venv and not systemwide.
+5. It will install all the python code and also adds a script in bin directory called `django-admin` which we can use to run django related commands.
+6. **Create django project**: Run `django-admin startproject scrum_board`
+7. Rename the project folder to `scrum_board_project` to confusion with same root app name `scrum_board`.
+
+### 3.4 Understanding Folder structure
+1. **manage.py**: 
+    - Run Commands
+2. **scrum_board_project/__init__.py**: (aka Dunder Init file)
+    - Tells Python that this folder contains Python files
+3. **scrum_board_project/wsgi.py and asgi**:
+    - Provides hooks for web server viz apache or enginex when django is running on live web sites. Used during deployment.
+4. **scrum_board_project/settings.py**:
+    - Configures the Django Project
+5. **scrum_board_project/urls.py**:
+    - Routes web requests based on URL
+6. We will edit only the settings.py: to configure django and urls.py file to manage routes requests based on URL in this project.
+7. Will Not Edit: manage.py, __init__.py, wsgi.py
