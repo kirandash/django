@@ -120,7 +120,7 @@
 1. **Models**: Defines the structure of database tables. models.py file will contain all the fields to be added in DB.
 2. Create class `List` & `Card` models : inherited from models.Model
 3. **models.Model**: lets us save the data from list and Card class into our DB.
-    - Will create a table for List and a table for Card. name, title & description will be the columns in the tables.
+    - Will create a table for List and a table for Card. name, title & description will be the columns in the tables. Model classes are mapped to database tables. Each instance will be mapped to rows. And fields are mapped to columns.
     - name and title are of type CharField while description will be of type TextField
     - **blank = True**: not mandatory
 4. python_2_unicode_compatible can be ignored if we are using python3 but if you are using python2, it must be added for unicode compatibility
@@ -167,3 +167,17 @@
 7. Check for unapplied migrations: `python manage.py showmigrations`
 8. apply new migrations: `python manage.py migrate`
 9. `open db.sqlite3` to check new fields under mainboard_card table.
+
+### 4.6 Django Admin Interface for mainboard app
+**Summary**:
+1. Create a Superuser
+2. Register Model classes to Admin
+3. Using the Admin Interface to Add Data
+
+**Steps**:
+1. open `mainboard/admin.py` file.
+2. Register our models List, Card in mainboard app to admin.
+3. Create **superuser**: Make sure venv is activated, `python manage.py createsuperuser`
+4. Run server: `python manage.py runserver` and go to http://127.0.0.1:8000/admin
+5. Start Adding data using the admin interface. Add some cards.
+6. Note: The __str__(self) fn defined in models.py file helps us define the user friendly names to display for Cards and lists in admin otherwise it will show as just object.
