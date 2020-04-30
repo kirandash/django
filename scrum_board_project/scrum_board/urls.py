@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # default url added by django for admin path
+    path('mainboard/', include('mainboard.urls')), # We will load all the views for mainboard app through mainboard. Ex: mainboard/lists, mainboard/cards.
+    # It tells Django that, In url once mainboard/ is matched, for the rest of the url look in mainboard/urls.py file
 ]

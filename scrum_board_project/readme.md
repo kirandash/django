@@ -176,8 +176,31 @@
 
 **Steps**:
 1. open `mainboard/admin.py` file.
-2. Register our models List, Card in mainboard app to admin.
+2. Register our models List, Card in mainboard app to admin. `admin.site.register(List)`
 3. Create **superuser**: Make sure venv is activated, `python manage.py createsuperuser`
 4. Run server: `python manage.py runserver` and go to http://127.0.0.1:8000/admin
 5. Start Adding data using the admin interface. Add some cards.
 6. Note: The __str__(self) fn defined in models.py file helps us define the user friendly names to display for Cards and lists in admin otherwise it will show as just object.
+
+### 4.7 Django REST Framework
+1. We will use Django REST framework to make our data available to public through REST services.
+
+**Summary**:
+1. Installing **djangorestframework**: This will generate REST APIs for us
+2. Adding **Serializers** classes to models: These classes will enable the REST framework to convert our data into JSON format.
+3. Adding **API views** for REST API
+4. **Configuring URLs** where the REST API will be served.
+
+**Steps**:
+1. Make sure venv is activated
+2. Install django-rest-framework: `pip install djangorestframework`.
+3. Add `serializers.py` file to mainboard app. Serializers class translates models from python to JSON which we can send over REST API and then use in React JS.
+4. Add `api.py` file to mainboard app. Once data is prepared by serializer in JSON format, code in api.py file will set the JSON data to be available via an API call.
+    - Create classes ListApi, CardApi inheriting from **ListAPIView**.
+    - ListAPIView is basically a component that gets a request from client ex: React. ---> query the data it needs in python ---> convert it using serializer and ---> send the result data back to client (React) in JSON format
+5. Add urls.py file to to mainboard app: mainboard.
+6. Add ListApi, CardApi API views to urlpatterns.
+7. Note: The urls.lpy from mainboard app will not be detected by django. Since, django only reads the urls.py from our main project folder: scrum_board/urls.py. Thus, to make django read our mainboard app urls.py file: add path to urlpatterns in `scrum_board/urls.py` file.
+8. Run server: `python manage.py runserver`
+9. Test the REST APIs using curl utility in terminal: `curl http://127.0.0.1:8000/mainboard/cards` and `curl http://127.0.0.1:8000/mainboard/lists`. 
+10. If curl is not available on your system: Add `rest-framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl) And now load the REST API urls in browser. 

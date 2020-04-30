@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', # To get a nice interface to check the REST API in browser. Not required if we can test with curl
     'mainboard',
 ]
 
