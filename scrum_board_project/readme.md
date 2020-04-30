@@ -124,3 +124,33 @@
     - name and title are of type CharField while description will be of type TextField
     - **blank = True**: not mandatory
 4. python_2_unicode_compatible can be ignored if we are using python3 but if you are using python2, it must be added for unicode compatibility
+
+### 4.4 Running Migration
+1. **Migrations**: Generate scripts to change the database structure
+2. **Intitial Migration**: By default no tables exists. So When a new model is defined, the **initial migration** will create the corresponding database tables
+3. When is a migration needed? While adding a model. Or Adding a Field. Removing a Field. Or Changing a field.
+4. **Migration commands**: `python manage.py makemigrations`, `python manage.py migrate`, `python manage.py showmigrations`
+5. `makemigrations`:
+    - Generates migration files for later use. 
+    - Uses current model fields and current database tables
+    - Creates numbered files in appname/migrations/
+6. `migrate`:
+    - Runs all migrations that haven't been run yet. To apply all migrations.
+    - Can also run migrations for an app to a specific number using: `migrate <appname> <number>` eg `migrate mainboard 1`
+7. **Unapplied migrations**: When a migration file has been created, but hasn't been run.
+    - Very common source of error when working with a team. So always make sure to have a look at changing models and pull migration files.
+
+**Running migrations on our project:**
+1. Go to manage.py folder (`cd scrum_board_project`, `ls`). Make sure venv is activated.
+2. Run command: `python manage.py makemigrations`. This creates model for any new model added in our code. Ex - List, Card model will be created. The structure of new models can be checked at: mainboard/migrations/0001_initial.py. This file shows the structure of 2 tables in DB for List and Card with their respective fields and id which is a unique primary key.
+3. `python manage.py showmigrations` will list all the default django migrations along with mainboard migrations grouped. Note that the `[ ]` empty sq brackets imply that these migrations have not been applied so far.
+4. Apply all migrations by running: `python manage.py migrate`. (Will show all applied migrations. 
+5. Verify applied migrations by: Now running `showmigrations` command will show `[x]` for all the applied migrations)
+6. Download os db tool: https://sqlitebrowser.org/: Helps us see sqlite db and their structures and contents.
+7. Install sqlitebrowser. Launch from Applications/DB Browser for SQLite.
+8. open database ---> select: db.sqlite3 file from our project. (Or shortcut: In terminal: type `open db.sqlite3`)
+9. Under Database Structure we can find: Tables: mainboard_list, mainboard_card + default django tables. Note: The tables we created will be named in following syntax: `appname_modelname` ex: `mainboard_list`, `mainboard_card`
+10. Expand table mainboard_list to see all the fields we added to our db ex: name. By default id is added which is the unique key for our data.
+11. **Default tables**: 
+    - auth tables
+    - **django_migrations** table: tells django which version currently the migration is
