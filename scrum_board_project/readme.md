@@ -93,3 +93,9 @@
     - Routes web requests based on URL
 6. We will edit only the settings.py: to configure django and urls.py file to manage routes requests based on URL in this project.
 7. Will Not Edit: manage.py, __init__.py, wsgi.py
+
+### 3.5 Run Django Dev Server
+1. From venv: run `cd scrum_board_project` && `python manage.py runserver`
+2. Ignore unapplied migrations warning.
+3. Website available at http://127.0.0.1:8000/
+4. Also creates a db.sqlite3 file to store data.
