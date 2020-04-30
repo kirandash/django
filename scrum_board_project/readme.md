@@ -99,3 +99,19 @@
 2. Ignore unapplied migrations warning.
 3. Website available at http://127.0.0.1:8000/
 4. Also creates a db.sqlite3 file to store data.
+
+## 4 The Backend: Django and REST
+### 4.1 Creating a Django App - mainboard
+1. Make sure venv is activated.
+2. Note that scrum_board is our root django app
+3. Create a new app: `cd scrum_board_project` & `python manage.py startapp mainboard`
+4. Django does not open all the apps present in code by default. We have to specifically install the new app by adding it to the list of `INSTALLED_APPS` in `scrum_board/settings.py` file. Note: Make sure to add a trailing comma.
+
+### 4.2 Understanding Django App Folder structure - mainboard
+1. **migrations/**: holds files to help us with migrate our DB when we change our schema over time. Or move code to different environment.
+2. **__init__.py**: (Dunder Init file) - Tells Python that this folder contains Python files
+3. **admin.py**: controls admin interface that can be used to edit data related to this app.
+4. **apps.py**: controls settings specific to this app.
+5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
+6. **tests.py**: Can add unit test for testing this app.
+7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
