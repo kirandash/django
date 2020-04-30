@@ -115,3 +115,12 @@
 5. **models.py**: provides the data layer which Django uses to create DB schema or queries.
 6. **tests.py**: Can add unit test for testing this app.
 7. **views.py**: Holds logic and control flow for handling requests and defines HTTP response that can be returned.
+
+### 4.3 Add models to mainboard/models.py file
+1. **Models**: Defines the structure of database tables. models.py file will contain all the fields to be added in DB.
+2. Create class `List` & `Card` models : inherited from models.Model
+3. **models.Model**: lets us save the data from list and Card class into our DB.
+    - Will create a table for List and a table for Card. name, title & description will be the columns in the tables.
+    - name and title are of type CharField while description will be of type TextField
+    - **blank = True**: not mandatory
+4. python_2_unicode_compatible can be ignored if we are using python3 but if you are using python2, it must be added for unicode compatibility
