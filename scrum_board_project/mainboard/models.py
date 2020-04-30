@@ -16,6 +16,12 @@ class Card(models.Model):
     # Fields for List model in DB
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
+    list = models.ForeignKey(List, related_name="cards", on_delete=models.DO_NOTHING,) # ForeignKey to build A relation b/w card and list. Each card will be inside a list
+    # Syntax: (ModelName, related_name="test"): related_name is the name of the prop to be used in List model which will include all the cards that particular List is having.
+    # list is made mandatory, bcoz we want each card to be a part of List
+     # For ForeignKey, on_delete is required since Django 2.x
+    story_points = models.IntegerField(null=True, blank=True)
+    business_value = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return "Card: {}".format(self.title) # user friendly name to show on django admin

@@ -154,3 +154,16 @@
 11. **Default tables**: 
     - auth tables
     - **django_migrations** table: tells django which version currently the migration is
+
+### 4.5 Adding More properties to Card Model
+1. **ForeignKey**: `list = models.ForeignKey(List, related_name="cards")`
+    - Used to create relationship b/w 2 tables. Ex: Each card must be in a list. that list prop is now used in Card model.
+    - Syntax: (ModelName, related_name="test"): related_name is the name of the prop to be used in List model which will include all the cards that particular List is having.
+2. After adding fields: Run migrations
+3. `python manage.py makemigrations`
+4. Note: since list ForeignKey property can not be Null and we have not provided any defauly. Our migrations command will ask us to provide a value. (In case there are any existing fields from before). But since we don't have any previous data, we can just choose 1) Provide a one-off default now (will be set on all existing rows with a null value for this column).
+5. Enter None
+6. And all our new fields will be created.
+7. Check for unapplied migrations: `python manage.py showmigrations`
+8. apply new migrations: `python manage.py migrate`
+9. `open db.sqlite3` to check new fields under mainboard_card table.
