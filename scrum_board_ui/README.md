@@ -40,3 +40,8 @@ This is the React codebase for the Scrum Board Project with Django backend.
 4. Create src/components/ui/ScrumList.js to hold the view. Pass the sample data to UI view through wrapper.
 5. Add ScrumListContainer wrapper to App.js. Delete all CSS from App.css
 
+### 6.3 Create ScrumCard Component - container and ui components
+1. This component will hold all the cards in our application.
+2. Create src/components/containers/ScrumCard.js to hold the wrapper.
+3. Create src/components/ui/ScrumCard.js to hold the view.
+4. Add ScrumCardContainer wrapper to ScrumList.js.

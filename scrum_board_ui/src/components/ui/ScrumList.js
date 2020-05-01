@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ScrumCardContainer from '../containers/ScrumCard';
+
 const ScrumList = (props) => {
     const { lists } = props;
     return (
@@ -9,7 +11,7 @@ const ScrumList = (props) => {
                 return (
                     <div key={index}>
                         <h3>{list.name}</h3>
-                        <p>Scrum Card Component Here</p>
+                        <ScrumCardContainer cards={list.cards}/>
                     </div>
                 )
             })}
