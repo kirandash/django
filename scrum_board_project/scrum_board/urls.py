@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls), # default url added by django for admin path
     path('mainboard/', include('mainboard.urls')), # We will load all the views for mainboard app through mainboard. Ex: mainboard/lists, mainboard/cards.
     # It tells Django that, In url once mainboard/ is matched, for the rest of the url look in mainboard/urls.py file
+    # using regexp: url(r'^mainboard/', include('mainboard.urls')), note: at the ending of regex string we don't have $ since that is not the end of the string, the rest of the url path is to be matched from mainboard/urls.py file
 ]

@@ -203,4 +203,7 @@
 7. Note: The urls.lpy from mainboard app will not be detected by django. Since, django only reads the urls.py from our main project folder: scrum_board/urls.py. Thus, to make django read our mainboard app urls.py file: add path to urlpatterns in `scrum_board/urls.py` file.
 8. Run server: `python manage.py runserver`
 9. Test the REST APIs using curl utility in terminal: `curl http://127.0.0.1:8000/mainboard/cards` and `curl http://127.0.0.1:8000/mainboard/lists`. 
-10. If curl is not available on your system: Add `rest-framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl) And now load the REST API urls in browser. 
+10. If curl is not available on your system: Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl) And now load the REST API urls in browser. 
+
+## 5. Adding a React Frontend
+Check: scrum_board/ui
