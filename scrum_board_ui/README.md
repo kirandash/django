@@ -78,5 +78,5 @@ This is the React codebase for the Scrum Board Project with Django backend.
 
 ### 7.4 Creating Redux Actions for Create Card and Remove Card
 1. Add code for adding Card and removing card to ScrumList.js view, ScrumCard.js view.
-2. Create src/actions/card_actions.js file. This will hold all the actions related to cards in our app.
+2. Create src/actions/card.js file. This will hold all the actions related to cards in our app.
 3. Create Action type constant and Action creator function for CREATE_CARD and REMOVE_CARD actions.
