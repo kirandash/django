@@ -75,3 +75,8 @@ This is the React codebase for the Scrum Board Project with Django backend.
 2. Create src/store/store.js: This file will hold logic for our redux store.
     - Create root store by combining all reducers
 3. In index.js: wrap `App`with `Provider`. Provider provides our centralized Redux store to a react component. Ex: `<Provider store={configureStore()}><App/></Provider>`
+
+### 7.4 Creating Redux Actions for Create Card and Remove Card
+1. Add code for adding Card and removing card to ScrumList.js view, ScrumCard.js view.
+2. Create src/actions/card_actions.js file. This will hold all the actions related to cards in our app.
+3. Create Action type constant and Action creator function for CREATE_CARD and REMOVE_CARD actions.

@@ -12,6 +12,10 @@ const ScrumList = (props) => {
                     <div key={index}>
                         <h3>{list.name}</h3>
                         <ScrumCardContainer cards={list.cards}/>
+                        <div>
+                            <input type="text" placeholder="Enter Card Title" />
+                            <button>Add Card to: {list.name}</button>
+                        </div>
                     </div>
                 )
             })}
