@@ -3,7 +3,7 @@ This is the React codebase for the Scrum Board Project with Django backend.
 
 ## 5. Adding a React Frontend
 ### 5.1 React project setup
-1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `npx create-react-app scrum_board_ui`
+1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `npx create-react-app scrum_board_ui`. Note: We don't need the venv that we were using during django. Because all the packages we install in react will be installed at project level only. venv can be deactivated by running: `deactivate`. (scrum_board_env) prompt will now disappear from terminal.
 
 ### 5.2 Understanding Project structure
 1. The project created by create-react-app has 2 main folders
@@ -45,3 +45,33 @@ This is the React codebase for the Scrum Board Project with Django backend.
 2. Create src/components/containers/ScrumCard.js to hold the wrapper.
 3. Create src/components/ui/ScrumCard.js to hold the view.
 4. Add ScrumCardContainer wrapper to ScrumList.js.
+
+**Difference b/w import {something} and import something from something.js**: 
+    - If the item is exported as default, we don't need to destructure during import. It can be directly imported. Ex: `import ScrumCard from '../ui/ScrumCard';`
+    - If the item is exported as const from a file. We have to destructure during import. Ex: import { lists } from `'../../assets/data/sample_data';`
+
+## 7. Managing State of our App with Redux
+### 7.1 Why do we need Redux?
+1. Let's have a look at ways to manage state:
+    - **A single state**: Creating state for root component and using that for all child components following a prop chain. **Cons**: Not suitable for large applications. As lots of props get attached to root state. And we will have to deal with **props drilling**. For example: App ---> Page ---> Section ---> List ---> ListItem. Ugly and difficult to troubleshoot. Prone to errors if we break the prop chain by mistake.
+    - **Components managing their own state**: Creating state for each component. Pros: No Props drilling. **Cons**: Difficult to share data between two components.
+    - **Global State Management**: A single centralized state, With all child components having unlimited access to it. **Pros**: No Props drilling. Easy to share state data b/w components. **Cons**: No rules/organizations on how to create state and use it. Thus leads to inconsistency b/w developers. And hard to recreate bugs for troubleshooting. Thus, unrestricted global state is not an ideal choice.
+    - **Redux** solves this problem by adding rules/orgnaizations to global state management.
+
+### 7.2 Understanding Redux
+1. Redux helps managing state or data in our application.
+2. Redux consists of 3 things: A Redux Store, Redux Actions and Reducers.
+    - **Redux Store**: JSON object that contains current state of our app. Redux Works on global state management concept. It has one centralized state where all our data is available and the centralized state is called **Store**. **The redux store** is basically a JSON object that can hold any type of data we want. Ex: In our application, the store will hold all the countries data.
+    - **Redux actions**: It defines different actions that can occur in our app. Ex: `ADD_CARD_BUTTON_CLICKED`. A Redux action is a JSON object consisting of two things: type of the action and payload. 
+    - **Reducers**: This defines what changes to do with Redux Store when a Redux action occurs. Ex: When `ADD_CARD_BUTTON_CLICKED` action occurs, we take all the data in payload and store it in countries property in our redux store.
+3. How redux helps react with state/data management?
+    - We can also manage state or data without React but the main problem is there are no standard sets of rules to follow. So, if you are building a large application with a team, not having a set of standards will create more bugs in your project. Redux solves this problem by adding some extra set of standards or rules that each developer can follow.
+
+### 7.3 Adding redux and react-redux to our React App
+1. We will need two packages for implementing Redux in our Application. 
+    - redux to handle redux realated tasks and 
+    - react-redux to integrate redux with react
+    - Install using npm: `cd scrum_board_ui` & `npm install redux react-redux`
+2. Create src/store/store.js: This file will hold logic for our redux store.
+    - Create root store by combining all reducers
+3. In index.js: wrap `App`with `Provider`. Provider provides our centralized Redux store to a react component. Ex: `<Provider store={configureStore()}><App/></Provider>`
