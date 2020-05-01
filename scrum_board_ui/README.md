@@ -80,3 +80,9 @@ This is the React codebase for the Scrum Board Project with Django backend.
 1. Add code for adding Card and removing card to ScrumList.js view, ScrumCard.js view.
 2. Create src/actions/card.js file. This will hold all the actions related to cards in our app.
 3. Create Action type constant and Action creator function for CREATE_CARD and REMOVE_CARD actions.
+
+### 7.5 Creating Reducers and Connecting it to root store
+1. A reducer is basically a fn to perform some tasks when an action is dispatched.
+2. Create src/reducers/lists.js file.
+3. Reducer takes 2 args: initial state, action triggered
+4. After lists reducers is created in reducers.ts file. Import it and add it to the list of reducers in store.js file

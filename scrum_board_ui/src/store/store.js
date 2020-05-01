@@ -3,7 +3,11 @@ import {
     combineReducers // Fn that Helps combining multiple reducers in a form that the result can be passed to createStore fn
 } from 'redux';
 
-const reducers = {}; // Will contain list of all reducers in our app
+import { lists } from '../reducers/lists';
+
+const reducers = {
+    lists,
+}; // Will contain list of all reducers in our app
 
 const rootReducer = combineReducers(reducers); // Combines all our reducers in a form that can be passed to createStore fn
 
