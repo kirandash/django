@@ -20,6 +20,7 @@ const ScrumList = (props) => {
                             }}>Add Card to: {list.name}</button>
                         </div>
                         {/* cardTitle */}
+                        <button onClick={() => props.removeList(index)}>Remove {list.name}</button>
                     </div>
                 )
             })}

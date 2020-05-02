@@ -8,9 +8,9 @@ export const createList = name => ({
     payload: { name }
 });
 
-export const removeList = name => ({
+export const removeList = listId => ({
     type: REMOVE_LIST,
-    payload: { name }
+    payload: { listId }
 });
 
 export const actionTypes = {

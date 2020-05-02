@@ -24,8 +24,9 @@ export const lists = (initialListsState = [], action) => { // Initial state is m
             return initialListsState.concat(newList);
         }
         case REMOVE_LIST: {
-            const { name } = payload;
-            return initialListsState.filter(list => list.name !== name);
+            const { listId } = payload;
+            // return initialListsState.filter(list => list.name !== name); // Filtering based on name - not recommended since we might have duplicate names
+            return initialListsState.filter((list,index) => index !== listId); // Filtering based on ID
         }
         case CREATE_CARD: {
             const { title, listId } = payload;

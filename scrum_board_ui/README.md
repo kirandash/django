@@ -106,3 +106,10 @@ This is the React codebase for the Scrum Board Project with Django backend.
 3. Add useState hook to AddListForm.js ui component
 4. Connect AddListForm container component to createList and removeList action creators.
 5. Send data from AddListForm ui component to parent container component.
+
+### 3.10 Implementing RemoveList using id
+1. Send onclick event from ScrumList.js ui component
+2. Dispatch removeList action from ScrumList.js container component
+3. modify lists.js acitons file to remove list using id instead of name
+4. modify lists reducer to remove list using id instead of name
+5. Note: we are currently using loop index as listing id. Later we can use listing id property from database.
