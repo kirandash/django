@@ -94,3 +94,8 @@ This is the React codebase for the Scrum Board Project with Django backend.
 1. Add connect to ScrumList container.
 2. map lists form state to componenet prop.
 3. map create card action to component prop.
+
+### 3.8 Create AddListForm Component to add new lists to the app
+1. Create components/ui/AddListForm ui component
+2. Create components/container/AddListForm container component
+3. Add AddListForm container to App.js
