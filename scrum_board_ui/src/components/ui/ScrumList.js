@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import ScrumCardContainer from '../containers/ScrumCard';
 
 const ScrumList = (props) => {
     const { lists } = props;
+    const [cardTitle, setCardTitle] = useState('');
     return (
         <div>
             <h3>Lists</h3>
@@ -13,9 +14,10 @@ const ScrumList = (props) => {
                         <h3>{list.name}</h3>
                         <ScrumCardContainer cards={list.cards}/>
                         <div>
-                            <input type="text" placeholder="Enter Card Title" />
+                            <input value={cardTitle} type="text" placeholder="Enter Card Title" onChange={e => setCardTitle(e.target.value)} />
                             <button>Add Card to: {list.name}</button>
                         </div>
+                        {/* cardTitle */}
                     </div>
                 )
             })}

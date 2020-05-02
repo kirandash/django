@@ -86,3 +86,6 @@ This is the React codebase for the Scrum Board Project with Django backend.
 2. Create src/reducers/lists.js file.
 3. Reducer takes 2 args: initial state, action triggered
 4. After lists reducers is created in reducers.ts file. Import it and add it to the list of reducers in store.js file
+
+### 3.6 useState hook to Store card title
+1. Add useState hook to ScrumList.js ui component
