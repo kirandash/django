@@ -16,7 +16,7 @@ const ScrumList = (props) => {
                         <div>
                             <input value={cardTitle} type="text" placeholder="Enter Card Title" onChange={e => setCardTitle(e.target.value)} />
                             <button onClick={() => {
-                                props.addCard(list.title, index)
+                                props.addCard(cardTitle, index)
                             }}>Add Card to: {list.name}</button>
                         </div>
                         {/* cardTitle */}
