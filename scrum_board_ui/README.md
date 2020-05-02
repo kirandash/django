@@ -89,3 +89,8 @@ This is the React codebase for the Scrum Board Project with Django backend.
 
 ### 3.6 useState hook to Store card title
 1. Add useState hook to ScrumList.js ui component
+
+### 3.7 Connecting ScrumList Container Component to the Store with connect from react-redux
+1. Add connect to ScrumList container.
+2. map lists form state to componenet prop.
+3. map create card action to component prop.
