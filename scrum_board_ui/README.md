@@ -99,3 +99,10 @@ This is the React codebase for the Scrum Board Project with Django backend.
 1. Create components/ui/AddListForm ui component
 2. Create components/container/AddListForm container component
 3. Add AddListForm container to App.js
+
+### 3.9 Implementing Redux for AddListForm Component
+1. Create actions/list.js file to handle all actions related to lists. Ex: CREATE_LIST, REMOVE_LIST
+2. Add code for CREATE_LIST and REMOVE_LIST actions in lists reducer: reducers/lists.js file.
+3. Add useState hook to AddListForm.js ui component
+4. Connect AddListForm container component to createList and removeList action creators.
+5. Send data from AddListForm ui component to parent container component.

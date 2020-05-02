@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const AddListForm = () => {
+const AddListForm = (props) => {
+    const [listName, setListName] = useState('');
     return (
         <div>
-            <input type="text" placeholder="Enter List name" />
-            <button>Add List</button>
+            <input type="text" value={listName} placeholder="Enter List name" onChange={e => setListName(e.target.value)} />
+            <button onClick={() => {
+                props.addList(listName)}
+            }>Add List</button>
+            {/*listName*/}
         </div>
     );
 }

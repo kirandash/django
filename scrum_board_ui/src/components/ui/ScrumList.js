@@ -7,7 +7,7 @@ const ScrumList = (props) => {
     const [cardTitle, setCardTitle] = useState('');
     return (
         <div>
-            <h3>Lists</h3>
+            {lists.length > 0 && <h3>All Lists</h3>}
             {lists.map((list, index) => {
                 return (
                     <div key={index}>
