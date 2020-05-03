@@ -137,3 +137,28 @@ This is the React codebase for the Scrum Board Project with Django backend.
 3. Add __REDUX_DEVTOOLS_EXTENSION__ to store.js createStore fn. It should highlight the redux devtools extension once our app is loaded.
 4. Run app with `npm run start`
 5. Go to http://localhost:3000/ and on performing some action: it will show the list of actions. The difference it makes to state and new state after the action, all in the Redux devtools extension.
+
+## 8 Handling API/Asynchronous Calls with Thunks or Redux Thunks
+### 8.1 Why Do We need Redux-Thunk?
+1. With Redux now our components size are really small as most of the state management code is moved out of component to store.js, actions.js and reducers.js file.
+2. Still in our current code: component has to contain code for asnyc/API calls.
+3. We can handle API calls in React component. But since our goal is to create a scalable application, we will handover the responsibility of making API calls to Thunks which has better sets of standards for managing API calls.
+4. Thus we have used Redux for State Management, Components for creating Views and now we will use Redux Thunks for handling API calls.
+5. Alternate Libraries to Redux Thunk for managing API calls: Redux Saga, Redux Logic etc.
+6. Redux saga is more popular.
+7. But Redux Thunk is simpler and easy to learn. And It does a pretty good job. I use it in most of my projects.
+
+### 8.2 Understanding Redux Thunk Flow
+1. UI Triggers Action ---> Redux Thunk is executed to make Async/API calls ---> State is Updated ---> Component See updated State.
+
+### 8.3 Adding Redux Thunk to React
+1. Run `cd scrum_board_ui` & `npm install redux-thunk redux-devtools-extension @babel/runtime`
+    - **redux-thunk** is the main thunk library to be used in our app
+    - **redux-devtools-extension** is used for adding redux-thunk to our devtools middleware.
+    - **@babel/runtime**: is used so that async thunks can work in our app
+2. `npm install --save-dev @babel/plugin-transform-runtime`
+    - Dev version of @babel/runtime: used for async thunks to work in our app
+3. Add thunk to store.js file
+4. thunk is used with applyMiddleware from redux.
+5. The result is passed through composeWithDevTools for dev tools support
+5. After adding Thunks throw applyMiddleware, test on chrome if every thing working as before - action dispatch in dev tool.
