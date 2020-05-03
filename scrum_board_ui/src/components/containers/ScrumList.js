@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import ScrumList from '../ui/ScrumList';
 // import { lists } from '../../assets/data/sample_data';
-import { createCard } from '../../actions/card';
 import { removeList } from '../../actions/list';
 
 const ScrumListContainer = (props) => {
@@ -17,7 +16,6 @@ const mapStateToProps = state => ({
 }); // mapStateToProps is a Fn which takes the entire state of our app as input and return specific props from the state which the specific component requires. And all props defined inside mapStateToProps is automatically made available by connect as prop for the component to use.
 
 const mapDispatchToProps = dispatch => ({
-    onAddCard: (title, listId) => dispatch(createCard(title, listId)),
     onRemoveList: listId => dispatch(removeList(listId)),
 }); // mapDispatchToProps is a Fn which takes dispatch as input. A dispatch is a fn used to call an action creator.
 

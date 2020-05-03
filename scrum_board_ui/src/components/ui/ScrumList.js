@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import ScrumCardContainer from '../containers/ScrumCard';
+import AddCardFormContainer from '../containers/AddCardForm';
 
 const ScrumList = (props) => {
     const { lists } = props;
-    const [cardTitle, setCardTitle] = useState('');
     return (
         <div>
             {lists.length > 0 && <h3>All Lists</h3>}
@@ -13,16 +13,7 @@ const ScrumList = (props) => {
                     <div key={index}>
                         <h3>{list.name}</h3>
                         <ScrumCardContainer cards={list.cards} listId={index} />
-                        <div>
-                            <input value={cardTitle} type="text" placeholder="Enter Card Title" onChange={e => setCardTitle(e.target.value)} />
-                            <button onClick={() => {
-                                const isDuplicateCard = list.cards.some(card => card.title === cardTitle);
-                                if(cardTitle && !isDuplicateCard) { // If there is a title and it's not duplicate
-                                    props.addCard(cardTitle, index);
-                                    setCardTitle(''); // Clearing the card title from input for next addition
-                                }
-                            }}>Add Card to: {list.name}</button>
-                        </div>
+                        <AddCardFormContainer list={list} listId={index} />
                         {/* cardTitle */}
                         <button onClick={() => props.removeList(index)}>Remove {list.name}</button>
                     </div>

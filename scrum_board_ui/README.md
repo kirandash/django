@@ -125,3 +125,8 @@ This is the React codebase for the Scrum Board Project with Django backend.
     - Null check
     - is duplicate check
 2. Also clear out the input fields after adding new item. So user can enter new data.
+
+### 3.13 Create AddCardForm component
+1. Add Card input inside lists.map was having a bug i.e. setState was getting common for all the inputs, since they all had a common scope. We must separate the scope for input fields by creating a new component.
+2. Create AddCardForm.js ui component
+3. Create AddCardForm.js container component
