@@ -119,3 +119,9 @@ This is the React codebase for the Scrum Board Project with Django backend.
 2. Dispatch removeCard action from ScrumCard.js container component
 3. Modify card.js action file to remove card using id instead of title
 4. modify lists reducer to remove card using id instead of title. Also returning state without mutation.
+
+### 3.12 Validation to Avoid Duplicate List and Card
+1. While creating list and card, do the following checks:
+    - Null check
+    - is duplicate check
+2. Also clear out the input fields after adding new item. So user can enter new data.
