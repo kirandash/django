@@ -161,4 +161,9 @@ This is the React codebase for the Scrum Board Project with Django backend.
 3. Add thunk to store.js file
 4. thunk is used with applyMiddleware from redux.
 5. The result is passed through composeWithDevTools for dev tools support
-5. After adding Thunks throw applyMiddleware, test on chrome if every thing working as before - action dispatch in dev tool.
+6. After adding Thunks throw applyMiddleware, test on chrome if every thing working as before - action dispatch in dev tool.
+
+### 8.4 Async thunks - for loadLists API from Django Server
+1. Create actions for in progress, success and failure state in actions.js file.
+2. Create thunk `loadLists` in thunks/list.js file.
+3. API URL to be called in loadLists thunk: `http://127.0.0.1:8000/mainboard/lists`.
