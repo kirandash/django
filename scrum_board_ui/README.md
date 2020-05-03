@@ -130,3 +130,10 @@ This is the React codebase for the Scrum Board Project with Django backend.
 1. Add Card input inside lists.map was having a bug i.e. setState was getting common for all the inputs, since they all had a common scope. We must separate the scope for input fields by creating a new component.
 2. Create AddCardForm.js ui component
 3. Create AddCardForm.js container component
+
+## 7.14 Redux DevTools
+1. To monitor states from chrome dev tools.
+2. Add Redux DevTools extension to chrome : https://chrome.google.com/webstore/detail/redux-devtools
+3. Add __REDUX_DEVTOOLS_EXTENSION__ to store.js createStore fn. It should highlight the redux devtools extension once our app is loaded.
+4. Run app with `npm run start`
+5. Go to http://localhost:3000/ and on performing some action: it will show the list of actions. The difference it makes to state and new state after the action, all in the Redux devtools extension.
