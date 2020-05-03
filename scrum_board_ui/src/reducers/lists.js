@@ -43,8 +43,16 @@ export const lists = (initialListsState = [], action) => { // Initial state is m
             ]; // lists array
         }
         case REMOVE_CARD: {
-            const { title, listId } = payload;
-            initialListsState[listId].cards.filter(card => card.title !== title); // Remove card with card title - temporary implementation. Better to remove card using card id instead. As: we might have duplicate card titles.
+            const { cardId, listId } = payload;
+            return [
+                ...initialListsState.slice(0, listId), // all objects before target object
+                {
+                    name: initialListsState[listId].name,
+                    cards: initialListsState[listId].cards.filter((card,index) => index !== cardId)
+                },
+                ...initialListsState.slice(listId + 1) // all objects after target object
+            ]
+            // initialListsState[listId].cards.filter((card,index) => index !== cardId); // Remove card with card title - temporary implementation. Better to remove card using card id instead. As: we might have duplicate card titles.
         }
         default: {
             return initialListsState; // For any action other than the actions mentioned above, we will return the state as is without any modification

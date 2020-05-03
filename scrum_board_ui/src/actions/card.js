@@ -14,7 +14,7 @@ export const createCard = (title, listId) => ({
 }); // Action Creator: A fn that returns 2 params: type of action and payload
 
 // REMOVE_CARD Action Creator
-export const removeCard = (title, listId) => ({
+export const removeCard = (cardId, listId) => ({
     type: REMOVE_CARD,
-    payload: { title, listId }
+    payload: { cardId, listId }
 }); // Action Creator: A fn that returns 2 params: type of action and payload

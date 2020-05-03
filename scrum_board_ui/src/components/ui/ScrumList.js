@@ -12,7 +12,7 @@ const ScrumList = (props) => {
                 return (
                     <div key={index}>
                         <h3>{list.name}</h3>
-                        <ScrumCardContainer cards={list.cards}/>
+                        <ScrumCardContainer cards={list.cards} listId={index} />
                         <div>
                             <input value={cardTitle} type="text" placeholder="Enter Card Title" onChange={e => setCardTitle(e.target.value)} />
                             <button onClick={() => {

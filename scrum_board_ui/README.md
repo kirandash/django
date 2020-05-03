@@ -110,6 +110,12 @@ This is the React codebase for the Scrum Board Project with Django backend.
 ### 3.10 Implementing RemoveList using id
 1. Send onclick event from ScrumList.js ui component
 2. Dispatch removeList action from ScrumList.js container component
-3. modify lists.js acitons file to remove list using id instead of name
-4. modify lists reducer to remove list using id instead of name
+3. modify list.js acitons file to remove list using id instead of name
+4. modify lists reducer to remove list using id instead of name. Also returning state without mutation.
 5. Note: we are currently using loop index as listing id. Later we can use listing id property from database.
+
+### 3.11 Implementing RemoveCard using id
+1. Send onclick event from ScrumCard.js ui component
+2. Dispatch removeCard action from ScrumCard.js container component
+3. Modify card.js action file to remove card using id instead of title
+4. modify lists reducer to remove card using id instead of title. Also returning state without mutation.
