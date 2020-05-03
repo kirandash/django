@@ -167,3 +167,14 @@ This is the React codebase for the Scrum Board Project with Django backend.
 1. Create actions for in progress, success and failure state in actions.js file.
 2. Create thunk `loadLists` in thunks/list.js file.
 3. API URL to be called in loadLists thunk: `http://127.0.0.1:8000/mainboard/lists`.
+
+### 8.5 Calling loadLists thunk in ScrumListContainer.js with The Effect hook
+1. Call loadLists thunk in ScrumListContainer.js file when component is loaded using effect hook.
+2. The Effect Hook lets you perform side effects in function components.
+3. useEffect in functional component is Similar to componentDidMount and componentDidUpdate in class component.
+4. Note: Now the API call will be unsuccessful because we are not authenticated to call the Django APIs from external React server. Solution: 
+    - 1. React in its own "frontend" Django app: load a single HTML template and let React manage the frontend (difficulty: medium). We will go for this.
+    - 2. Django REST as a standalone API + React as a standalone SPA (difficulty: hard, it involves JWT for authentication)
+    - 3. Mix and match: mini React apps inside Django templates (difficulty: simple, but not so maintainable in the long run)
+5. Check loadLists again after integrating React into Django.
+
