@@ -87,46 +87,46 @@ This is the React codebase for the Scrum Board Project with Django backend.
 3. Reducer takes 2 args: initial state, action triggered
 4. After lists reducers is created in reducers.ts file. Import it and add it to the list of reducers in store.js file
 
-### 3.6 useState hook to Store card title
+### 7.6 useState hook to Store card title
 1. Add useState hook to ScrumList.js ui component
 
-### 3.7 Connecting ScrumList Container Component to the Store with connect from react-redux
+### 7.7 Connecting ScrumList Container Component to the Store with connect from react-redux
 1. Add connect to ScrumList container.
 2. map lists form state to componenet prop.
 3. map create card action to component prop.
 
-### 3.8 Create AddListForm Component to add new lists to the app
+### 7.8 Create AddListForm Component to add new lists to the app
 1. Create components/ui/AddListForm ui component
 2. Create components/container/AddListForm container component
 3. Add AddListForm container to App.js
 
-### 3.9 Implementing Redux for AddListForm Component
+### 7.9 Implementing Redux for AddListForm Component
 1. Create actions/list.js file to handle all actions related to lists. Ex: CREATE_LIST, REMOVE_LIST
 2. Add code for CREATE_LIST and REMOVE_LIST actions in lists reducer: reducers/lists.js file.
 3. Add useState hook to AddListForm.js ui component
 4. Connect AddListForm container component to createList and removeList action creators.
 5. Send data from AddListForm ui component to parent container component.
 
-### 3.10 Implementing RemoveList using id
+### 7.10 Implementing RemoveList using id
 1. Send onclick event from ScrumList.js ui component
 2. Dispatch removeList action from ScrumList.js container component
 3. modify list.js acitons file to remove list using id instead of name
 4. modify lists reducer to remove list using id instead of name. Also returning state without mutation.
 5. Note: we are currently using loop index as listing id. Later we can use listing id property from database.
 
-### 3.11 Implementing RemoveCard using id
+### 7.11 Implementing RemoveCard using id
 1. Send onclick event from ScrumCard.js ui component
 2. Dispatch removeCard action from ScrumCard.js container component
 3. Modify card.js action file to remove card using id instead of title
 4. modify lists reducer to remove card using id instead of title. Also returning state without mutation.
 
-### 3.12 Validation to Avoid Duplicate List and Card
+### 7.12 Validation to Avoid Duplicate List and Card
 1. While creating list and card, do the following checks:
     - Null check
     - is duplicate check
 2. Also clear out the input fields after adding new item. So user can enter new data.
 
-### 3.13 Create AddCardForm component
+### 7.13 Create AddCardForm component
 1. Add Card input inside lists.map was having a bug i.e. setState was getting common for all the inputs, since they all had a common scope. We must separate the scope for input fields by creating a new component.
 2. Create AddCardForm.js ui component
 3. Create AddCardForm.js container component

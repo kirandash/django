@@ -205,5 +205,11 @@
 9. Test the REST APIs using curl utility in terminal: `curl http://127.0.0.1:8000/mainboard/cards` and `curl http://127.0.0.1:8000/mainboard/lists`. 
 10. If curl is not available on your system: Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl) And now load the REST API urls in browser. 
 
+### 4.8 Modifying ListSerializer to include CardSerializer
+1. Currently, the list API: http://127.0.0.1:8000/mainboard/lists, have only list details. And does not have any card details. 
+2. Modify the ListSerializer class in mainboard/serializers.py file to add CardSerializer.
+3. In Django admin: add one more list with no cards added. Only to check the difference b/w both types.
+4. Check list API: http://127.0.0.1:8000/mainboard/lists.
+
 ## 5. Adding a React Frontend
 Check: scrum_board/ui
