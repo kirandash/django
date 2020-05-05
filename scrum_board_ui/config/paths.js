@@ -65,7 +65,6 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
-  statsRoot: resolveApp('../'),
 };
 
 

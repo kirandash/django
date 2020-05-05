@@ -24,7 +24,6 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const BundleTracker = require('webpack-bundle-tracker');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -152,9 +151,7 @@ module.exports = function(webpackEnv) {
       // require.resolve('webpack-dev-server/client') + '?/',
       // require.resolve('webpack/hot/dev-server'),
       isEnvDevelopment &&
-        // require.resolve('react-dev-utils/webpackHotDevClient'),
-        require.resolve('webpack-dev-server/client') + '?http://localhost:3000',
-        require.resolve('webpack/hot/dev-server'),
+        require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
@@ -312,7 +309,6 @@ module.exports = function(webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        new BundleTracker({path: paths.statsRoot, filename: 'webpack-stats.dev.json'}),
       ],
     },
     resolveLoader: {

@@ -228,13 +228,3 @@ Check: scrum_board/ui
 
 ### 8.6 Serving React code through Django - Contd. - Eject UI Config
 1. **Eject** react app created using create-react-app tool. This will eject the config files, so that we can edit them ourselves.
-2. **Note**: 
-    - eject is a one time operation. Thus can't go back.
-    - Also eject might not work if we have any modified files. Please commit all changes or revert them before ejecting.
-
-### 8.6 Serving React code through Django - Contd. - Edit UI webpack Config
-1. `npm install webpack-bundle-tracker --save-dev`
-2. In your scrum_board_ui/config/paths.js add `statsRoot: resolveApp('../'),` to the module.exports object.
-3. In `scrum_board_ui/config/webpack.config.js`, import webpack-bundle-tracker and include BundleTracker in webpack plugins and replace webpackHotDevClient line with the other two modules.
-4. The reason of replacing webpackHotDevClient, publicPath and publicUrl is that we are going to serve webpack dev server's bundle on a django page, and we don't want webpack hot loader to send requests to wrong url/host.
-5. Move all the FE files to scrum_board_project/frontend folder.
