@@ -9,6 +9,9 @@ const {
 const {
     CREATE_LIST,
     REMOVE_LIST,
+    LOAD_LISTS_IN_PROGRESS,
+    LOAD_LISTS_SUCCESS,
+    LOAD_LISTS_FAILURE,
 } = listActionTypes; 
 
 // Creating a reducer lists for the global state/store
@@ -54,6 +57,11 @@ export const lists = (initialListsState = [], action) => { // Initial state is m
             ]
             // initialListsState[listId].cards.filter((card,index) => index !== cardId); // Remove card with card title - temporary implementation. Better to remove card using card id instead. As: we might have duplicate card titles.
         }
+        case LOAD_LISTS_SUCCESS: {
+            return initialListsState.concat(payload.lists)
+        }
+        case LOAD_LISTS_IN_PROGRESS: 
+        case LOAD_LISTS_FAILURE: 
         default: {
             return initialListsState; // For any action other than the actions mentioned above, we will return the state as is without any modification
         }

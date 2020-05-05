@@ -24,7 +24,7 @@ export const loadListsInProgress = () => ({
 
 export const loadListsSuccess = lists => ({
     type: LOAD_LISTS_SUCCESS,
-    payload: { lists }
+    payload: { lists } // Reducer will receive lists in payload.lists
 });
 
 export const loadListsFailure = () => ({

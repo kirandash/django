@@ -178,3 +178,11 @@ This is the React codebase for the Scrum Board Project with Django backend.
     - 3. Mix and match: mini React apps inside Django templates (difficulty: simple, but not so maintainable in the long run)
 5. Check loadLists again after integrating React into Django.
 
+### 8.6 Fixing CORS error - In Django
+Check: scrum_board_project
+
+### 8.7 Modify the lists reducer to show lists from API
+1. reducers.js file - Add actions for LOAD_COUNTRY_SUCCESS, LOAD_COUNTRY_IN_PROGRESS and LOAD_COUNTRY_FAILURE
+2. Sample Country Codes for testing: GB (United Kingdom), US (USA), SG (Singapore), GE (Georgia), IN (India), IT (Italy), ES (Spain)
+3. We have also handled error for use case when user enters invalid countrycode. Pls test.
+4. Also remove manual delay of 3s from loadCountry thunk.
