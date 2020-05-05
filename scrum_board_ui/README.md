@@ -189,3 +189,20 @@ Check: scrum_board_project
 2. Current lists reducer structure: state ---> lists ---> array of list objects
 3. After modification: state ---> lists ---> { isLoading: boolean, data: [array of list objects] }
 4. Also modify the references in all components at `mapStateToProps`. Note: on changing the JSON structure of state, we now have to change the code in all components. To solve this problem, we have **selectors** which acts as an additional layer b/w redux and react components.
+5. After changes: make sure all functionalities still work like before. Also note that on load: data will load from API. But on adding and removing lists/cards: it won't be saved. And will get erased on reloading.
+
+### 9. Selectors
+### 9.1 Why do we need selectors?
+1. Till now we have separated the application responsibilities as follows:
+    - Component ---> Display View
+    - Reducers ---> Manage State
+    - Thunks ---> API/Async calls
+2. Currently, we are mapping data from state directly to mapStateToProps. Ex in ScrumList.js file. But what if we need to modify the data from state before assigning to mapStateToProps.
+3. **Selectors** 
+    - gives us a place to put logic for combining, filtering, transforming and storing data before passing it to the React View Component. It is one more layer between Redux reducers and React view components.
+    - If JSON data structure of state changes, we don't have to change the mapping in mapStateToProps for every component. All we have to do is just change the code in selectors.js file. Ex: In 8.8, we changed the structure from state.lists to state.lists.data.
+
+### 9.2 Creating selector - getLists
+1. Create src/selectors/lists.js file
+2. Add getLists selector in selectors/lists.js
+3. **IMPORTANT:** The beauty of selectors is: now if structure of state changes, we don't have to change the mapping in mapStateToProps for every component. All we have to do is just change the code in selectors.js file.

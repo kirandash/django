@@ -5,6 +5,7 @@ import ScrumList from '../ui/ScrumList';
 // import { lists } from '../../assets/data/sample_data';
 import { removeList } from '../../actions/list';
 import { loadLists } from '../../thunks/list';
+import { getLists } from '../../selectors/lists';
 
 const ScrumListContainer = (props) => {
     const { getLists } = props;
@@ -17,7 +18,8 @@ const ScrumListContainer = (props) => {
 }
 
 const mapStateToProps = state => ({
-    lists: state.lists.data,
+    // lists: state.lists.data,
+    lists: getLists(state),
 }); // mapStateToProps is a Fn which takes the entire state of our app as input and return specific props from the state which the specific component requires. And all props defined inside mapStateToProps is automatically made available by connect as prop for the component to use.
 
 const mapDispatchToProps = dispatch => ({

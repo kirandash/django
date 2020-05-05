@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import AddListForm from '../ui/AddListForm';
 import { createList } from '../../actions/list';
+import { getLists } from '../../selectors/lists';
 
 const AddListFormContainer = (props) => {
     return (
@@ -11,7 +12,8 @@ const AddListFormContainer = (props) => {
 }
 
 const mapStateToProps = state => ({
-    lists: state.lists.data,
+    // lists: state.lists.data,
+    lists: getLists(state),
 });
 
 const mapDispatchToProps = dispatch => ({
