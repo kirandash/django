@@ -211,5 +211,13 @@
 3. In Django admin: add one more list with no cards added. Only to check the difference b/w both types.
 4. Check list API: http://127.0.0.1:8000/mainboard/lists.
 
+### 4.9 Fixing CORS error
+Read more about this at: https://blog.logrocket.com/creating-an-app-with-react-and-django/
+1. Make sure venv is activated.
+2. `pip install django-cors-headers`. **django-cors-headers**: App for handling the server headers required for Cross-Origin Resource Sharing (CORS). Since we want to access Django APIs from React.
+3. Add `corsheaders` to list of `INSTALLED_APPS` in project settings file.
+4. Add `'corsheaders.middleware.CorsMiddleware','django.middleware.common.CommonMiddleware',` to list of MIDDLEWARE in project settings.file. They correspond to a filter that’ll intercept all of our application’s requests and apply CORS logic to them.
+5. Add `CORS_ORIGIN_ALLOW_ALL = True` to project settings file. Since we’re working full localhost, we’ll disable the CORS feature.
+
 ## 5. Adding a React Frontend
 Check: scrum_board/ui

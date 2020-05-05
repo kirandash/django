@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # To get a nice interface to check the REST API in browser. Not required if we can test with curl
     'mainboard',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware', # They correspond to a filter that’ll intercept all of our application’s requests and apply CORS logic to them.
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True # since we’re working full localhost, we’ll disable the CORS feature by adding the following to the same file:
 
 ROOT_URLCONF = 'scrum_board.urls'
 
