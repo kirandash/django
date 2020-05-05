@@ -225,6 +225,3 @@ Check: scrum_board/ui
 6. To serve the index page of react application we need to create a view and template in django. We'll start by creating an index template at templates/index.html. 
 7. We will also need to update the project's template settings so it can detect the template directory.
 8. Now that the template is ready, let's create a view to serve it. Since this will be a plain template, we can use django's TemplateView directly in our url config. In your project urls.py file.
-
-### 8.6 Serving React code through Django - Contd. - Eject UI Config
-1. **Eject** react app created using create-react-app tool. This will eject the config files, so that we can edit them ourselves.
