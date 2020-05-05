@@ -11,7 +11,7 @@ const AddListFormContainer = (props) => {
 }
 
 const mapStateToProps = state => ({
-    lists: state.lists,
+    lists: state.lists.data,
 });
 
 const mapDispatchToProps = dispatch => ({

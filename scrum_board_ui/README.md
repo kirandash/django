@@ -182,7 +182,10 @@ This is the React codebase for the Scrum Board Project with Django backend.
 Check: scrum_board_project
 
 ### 8.7 Modify the lists reducer to show lists from API
-1. reducers.js file - Add actions for LOAD_COUNTRY_SUCCESS, LOAD_COUNTRY_IN_PROGRESS and LOAD_COUNTRY_FAILURE
-2. Sample Country Codes for testing: GB (United Kingdom), US (USA), SG (Singapore), GE (Georgia), IN (India), IT (Italy), ES (Spain)
-3. We have also handled error for use case when user enters invalid countrycode. Pls test.
-4. Also remove manual delay of 3s from loadCountry thunk.
+1. reducers/lists.js file - Add actions for LOAD_LISTS_SUCCESS, LOAD_LISTS_IN_PROGRESS and LOAD_LISTS_FAILURE
+
+### 8.8 Add isLoading property to check if API is finished loading
+1. `reducers/lists.js file` - Modify the state structure for lists reducer. Move all lists data into state.lists.data. And add isLoading property to state.lists.isLoading.
+2. Current lists reducer structure: state ---> lists ---> array of list objects
+3. After modification: state ---> lists ---> { isLoading: boolean, data: [array of list objects] }
+4. Also modify the references in all components at `mapStateToProps`. Note: on changing the JSON structure of state, we now have to change the code in all components. To solve this problem, we have **selectors** which acts as an additional layer b/w redux and react components.

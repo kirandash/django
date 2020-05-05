@@ -17,7 +17,7 @@ const ScrumListContainer = (props) => {
 }
 
 const mapStateToProps = state => ({
-    lists: state.lists,
+    lists: state.lists.data,
 }); // mapStateToProps is a Fn which takes the entire state of our app as input and return specific props from the state which the specific component requires. And all props defined inside mapStateToProps is automatically made available by connect as prop for the component to use.
 
 const mapDispatchToProps = dispatch => ({
