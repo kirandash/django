@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # To get a nice interface to check the REST API in browser. Not required if we can test with curl
     'mainboard',
-    'webpack_loader', # webpack loader to integrate react bundles with django
 ]
 
 MIDDLEWARE = [
@@ -54,17 +53,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'scrum_board.urls'
 
-WEBPACK_LOADER = {
-    'DEFAULT': {
-            'BUNDLE_DIR_NAME': 'bundles/',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
-        }
-}
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates"),],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
