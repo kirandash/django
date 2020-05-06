@@ -243,3 +243,4 @@ Check: scrum_board_ui
 6. mainboard/urls.py: for configuring the URLs, use **router** from restframework. It helps us generate url mapping for all views (GET, POST, DELETE etc) in a better or easy way.
 7. After adding the code, restart the server and reload the API at: http://127.0.0.1:8000/mainboard/cards/. Note: Now along with GET option, we also have POST option if we scroll down the page.
 8. Visit: http://127.0.0.1:8000/mainboard/lists/1/ to see PUT and DELETE options as well for individual list and card item.
+9. Note: Now, loading the API from Frontend will be failing at http://localhost:3000/. Because, the API endpoint created by router class of djangorestframework expects a slash at the end. So, in Frontend code change the endpoint URL in thunks/list.js to http://127.0.0.1:8000/mainboard/lists/.
