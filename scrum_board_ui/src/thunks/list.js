@@ -32,8 +32,8 @@ export const createList = (name) => async(dispatch, getState) => {
                 name: name
             })
         });
-        const lists = await response.json();
-        dispatch(createListSuccess(lists));
+        const list = await response.json();
+        dispatch(createListSuccess(list));
     } catch(e) {
         dispatch(createListFailure());
     }
