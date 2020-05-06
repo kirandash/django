@@ -238,7 +238,7 @@ Check: scrum_board_ui
     - ViewSets
     - Router
 2. Currently our api code at: mainboard/api.py has 2 classes ListApi and CardApi, which are extended from ListAPIView. ListAPIView currently handles only GET request. To add all other request types we can manyally add views for POST, DELETE etc. But better way is to generate all the views automatically using ModalViewSet.
-3. **ModelViewSet**: It's a set of Model Views. An alternate way to create all views (GET, POST, DELETE etc) for APIs. Instead of creating the views manually.
+3. **ModelViewSet**: It's a set of Model Views that supports GET, PUT, POST, DELETE. An alternate way to create all views (GET, POST, DELETE etc) for APIs. Instead of creating the views manually.
 5. mainboard/api.py: Modify the List and Card APIs using ModelViewSet
 6. mainboard/urls.py: for configuring the URLs, use **router** from restframework. It helps us generate url mapping for all views (GET, POST, DELETE etc) in a better or easy way.
 7. After adding the code, restart the server and reload the API at: http://127.0.0.1:8000/mainboard/cards/. Note: Now along with GET option, we also have POST option if we scroll down the page.

@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AddListForm from '../ui/AddListForm';
-import { createList } from '../../actions/list';
+// import { createList } from '../../actions/list';
 import { getLists } from '../../selectors/lists';
+import { createList } from '../../thunks/list';
 
 const AddListFormContainer = (props) => {
     return (

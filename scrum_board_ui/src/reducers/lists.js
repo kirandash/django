@@ -12,6 +12,9 @@ const {
     LOAD_LISTS_IN_PROGRESS,
     LOAD_LISTS_SUCCESS,
     LOAD_LISTS_FAILURE,
+    CREATE_LIST_IN_PROGRESS,
+    CREATE_LIST_SUCCESS,
+    CREATE_LIST_FAILURE,
 } = listActionTypes; 
 
 // Creating a reducer lists for the global state/store
@@ -83,6 +86,25 @@ export const lists = (initialListsState = { isLoading: false, data: [] }, action
             }
         }
         case LOAD_LISTS_FAILURE: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false, // API Finished loading
+            }
+        }
+        case CREATE_LIST_SUCCESS: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false, // API finished loading
+                data: initialListsState.data.concat(payload.lists) // API data assigned to state.lists.data
+            }
+        }
+        case CREATE_LIST_IN_PROGRESS: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: true, // API still loading
+            }
+        }
+        case CREATE_LIST_FAILURE: {
             return {
                 ...initialListsState, // rest of the state untouched
                 isLoading: false, // API Finished loading

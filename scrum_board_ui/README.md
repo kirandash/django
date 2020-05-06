@@ -206,3 +206,14 @@ Check: scrum_board_project
 1. Create src/selectors/lists.js file
 2. Add getLists selector in selectors/lists.js
 3. **IMPORTANT:** The beauty of selectors is: now if structure of state changes, we don't have to change the mapping in mapStateToProps for every component. All we have to do is just change the code in selectors.js file.
+
+
+## 10 Editing Data
+### 10.1 - 10.2 - Django
+Check: scrum_board_project
+
+### 10.3 Saving new List with POST - Frontend
+1. Create CREATE_LIST_IN_PROGRESS, SUCCESS and FAILURE actions in actions/list.js file
+2. Add Code in lists reducer at reducers/lists.js file to handle state management for the above 3 actions.
+3. Create new thunk createList in thunks/list.js file: to handle POST API call.
+4. Call thunk from AddListForm.js file.
