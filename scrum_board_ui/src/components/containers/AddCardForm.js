@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AddCardForm from '../ui/AddCardForm';
-import { createCard } from '../../actions/card';
+// import { createCard } from '../../actions/card';
+import { createCard } from '../../thunks/card';
 
 const AddCardFormContainer = (props) => {
-    const { list, listId, onAddCard } = props;
+    const { list, onAddCard } = props;
     return (
-        <AddCardForm list={list} listId={listId} addCard={onAddCard} />
+        <AddCardForm list={list} addCard={onAddCard} />
     );
 }
 

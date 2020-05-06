@@ -12,10 +12,10 @@ const ScrumList = (props) => {
                 return (
                     <div key={index}>
                         <h3>{list.name}</h3>
-                        <ScrumCardContainer cards={list.cards} listId={index} />
-                        <AddCardFormContainer list={list} listId={index} />
+                        <ScrumCardContainer cards={list.cards} listId={list.id} />
+                        <AddCardFormContainer list={list} />
                         {/* cardTitle */}
-                        <button onClick={() => props.removeList(index)}>Remove {list.name}</button>
+                        <button onClick={() => props.removeList(list.id)}>Remove {list.name}</button>
                     </div>
                 )
             })}

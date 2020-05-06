@@ -217,3 +217,10 @@ Check: scrum_board_project
 2. Add Code in lists reducer at reducers/lists.js file to handle state management for the above 3 actions.
 3. Create new thunk createList in thunks/list.js file: to handle POST API call.
 4. Call thunk from AddListForm.js file.
+
+### 10.4 Saving new Card with POST
+1. Create CREATE_CARD_IN_PROGRESS, SUCCESS and FAILURE actions in actions/card.js file
+2. Add Code in lists reducer at reducers/lists.js file to handle state management for the above 3 actions.
+3. Create new thunk createCard in thunks/card.js file: to handle POST API call.
+4. Call thunk from AddCardForm.js container file.
+5. AddCardForm.js ui file: switch list id from index to id from database.

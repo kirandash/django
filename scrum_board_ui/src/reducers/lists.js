@@ -4,6 +4,9 @@ import { actionTypes as listActionTypes } from '../actions/list';
 const {
     CREATE_CARD,
     REMOVE_CARD,
+    CREATE_CARD_IN_PROGRESS,
+    CREATE_CARD_SUCCESS,
+    CREATE_CARD_FAILURE,
 } = actionTypes; // Destructuring actionTypes to get our imported action types
 
 const {
@@ -71,6 +74,37 @@ export const lists = (initialListsState = { isLoading: false, data: [] }, action
                 ]
             }
             // initialListsState[listId].cards.filter((card,index) => index !== cardId); // Remove card with card title - temporary implementation. Better to remove card using card id instead. As: we might have duplicate card titles.
+        }
+        case CREATE_CARD_SUCCESS: {
+            const { card: { title, list: listId } } = payload;
+            const newCard = {
+                title: title
+            };
+            const indexOfListId = initialListsState.data.map(list => list.id).indexOf(listId);
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false,
+                data: [
+                    ...initialListsState.data.slice(0, indexOfListId), // all objects before target object
+                    {
+                        ...initialListsState.data[indexOfListId], // all items in the array
+                        cards: initialListsState.data[indexOfListId].cards.concat(newCard) // overwriting cards item in the array
+                    }, // target object in lists array to update
+                    ...initialListsState.data.slice(indexOfListId + 1) // all objects after target object
+                ]
+            }; // lists array
+        }
+        case CREATE_CARD_IN_PROGRESS: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: true, // API still loading
+            }
+        }
+        case CREATE_CARD_FAILURE: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false, // API still loading
+            }
         }
         case LOAD_LISTS_SUCCESS: {
             return {
