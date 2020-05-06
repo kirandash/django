@@ -221,3 +221,25 @@ Read more about this at: https://blog.logrocket.com/creating-an-app-with-react-a
 3. Add `corsheaders` to list of `INSTALLED_APPS` in project settings file.
 4. Add `'corsheaders.middleware.CorsMiddleware','django.middleware.common.CommonMiddleware',` to list of MIDDLEWARE in project settings.file. They correspond to a filter that’ll intercept all of our application’s requests and apply CORS logic to them.
 5. Add `CORS_ORIGIN_ALLOW_ALL = True` to project settings file. Since we’re working full localhost, we’ll disable the CORS feature.
+
+## 9. Selectors - UI
+Check: scrum_board_ui
+
+## 10. Editing Data
+### 10.1 Intro
+1. Get Cards: GET request to url /mainboard/cards - Already Implemented. To implement:
+2. Creating a Card: POST request to url /mainboard/cards
+3. Updating a Card: PUT request to url /mainboard/cards/2
+4. Delete a Card: DELETE request to url /mainboard/cards/3
+5. Getting a Card: GET request to url /mainboard/cards/4
+
+### 10.2 Saving new Cards with POST
+1. For saving new Cards we will need 2 classes from Django:
+    - ViewSets
+    - Router
+2. Currently our api code at: mainboard/api.py has 2 classes ListApi and CardApi, which are extended from ListAPIView. ListAPIView currently handles only GET request. To add all other request types we can manyally add views for POST, DELETE etc. But better way is to generate all the views automatically using ModalViewSet.
+3. **ModelViewSet**: It's a set of Model Views. An alternate way to create all views (GET, POST, DELETE etc) for APIs. Instead of creating the views manually.
+5. mainboard/api.py: Modify the List and Card APIs using ModelViewSet
+6. mainboard/urls.py: for configuring the URLs, use **router** from restframework. It helps us generate url mapping for all views (GET, POST, DELETE etc) in a better or easy way.
+7. After adding the code, restart the server and reload the API at: http://127.0.0.1:8000/mainboard/cards/. Note: Now along with GET option, we also have POST option if we scroll down the page.
+8. Visit: http://127.0.0.1:8000/mainboard/lists/1/ to see PUT and DELETE options as well for individual list and card item.

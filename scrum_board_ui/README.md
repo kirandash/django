@@ -61,9 +61,9 @@ This is the React codebase for the Scrum Board Project with Django backend.
 ### 7.2 Understanding Redux
 1. Redux helps managing state or data in our application.
 2. Redux consists of 3 things: A Redux Store, Redux Actions and Reducers.
-    - **Redux Store**: JSON object that contains current state of our app. Redux Works on global state management concept. It has one centralized state where all our data is available and the centralized state is called **Store**. **The redux store** is basically a JSON object that can hold any type of data we want. Ex: In our application, the store will hold all the countries data.
+    - **Redux Store**: JSON object that contains current state of our app. Redux Works on global state management concept. It has one centralized state where all our data is available and the centralized state is called **Store**. **The redux store** is basically a JSON object that can hold any type of data we want. Ex: In our application, the store will hold all the lists data.
     - **Redux actions**: It defines different actions that can occur in our app. Ex: `ADD_CARD_BUTTON_CLICKED`. A Redux action is a JSON object consisting of two things: type of the action and payload. 
-    - **Reducers**: This defines what changes to do with Redux Store when a Redux action occurs. Ex: When `ADD_CARD_BUTTON_CLICKED` action occurs, we take all the data in payload and store it in countries property in our redux store.
+    - **Reducers**: This defines what changes to do with Redux Store when a Redux action occurs. Ex: When `ADD_CARD_BUTTON_CLICKED` action occurs, we take all the data in payload and store it in lists property in our redux store.
 3. How redux helps react with state/data management?
     - We can also manage state or data without React but the main problem is there are no standard sets of rules to follow. So, if you are building a large application with a team, not having a set of standards will create more bugs in your project. Redux solves this problem by adding some extra set of standards or rules that each developer can follow.
 
