@@ -95,7 +95,7 @@ export const lists = (initialListsState = { isLoading: false, data: [] }, action
             return {
                 ...initialListsState, // rest of the state untouched
                 isLoading: false, // API finished loading
-                data: initialListsState.data.concat(payload.lists) // API data assigned to state.lists.data
+                data: initialListsState.data.concat(payload.list) // API data assigned to state.lists.data
             }
         }
         case CREATE_LIST_IN_PROGRESS: {

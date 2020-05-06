@@ -40,9 +40,9 @@ export const createListInProgress = () => ({
     type: CREATE_LIST_IN_PROGRESS,
 });
 
-export const createListSuccess = lists => ({
+export const createListSuccess = list => ({
     type: CREATE_LIST_SUCCESS,
-    payload: { lists } // Reducer will receive lists in payload.lists
+    payload: { list } // Reducer will receive lists in payload.lists
 });
 
 export const createListFailure = () => ({
