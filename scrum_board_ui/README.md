@@ -239,3 +239,27 @@ Check: scrum_board_project
 2. Create new thunk deleteCard in thunks/card.js file: to handle DELETE API call.
 3. Add Code in lists reducer at reducers/lists.js file to handle state management for the above 3 actions dispatched from thunk.
 4. Dispatch removeCard from ScrumCard ui component and call the thunk/API deleteCard from ScrumCard container component.
+
+## 11. Styled Components
+### 11.1 Why do we need styled components?
+1. So far we have separated the concerns as follows
+    - Components ---> Display data
+    - Reducers ---> Manage state
+    - Thunks ---> Side Effect Logic
+    - Selectors ---> Abstracting the state's format, transforming state data
+2. For handling CSS: we can use separate .css file aka **css modules**. Ex: component.js and component.css file. This is not ideal to have extra css file or modules for every component.
+    - It will clutter our folder structure.
+3. **Styled Component:** Allows us to define styles inside our JS files.
+    - Benefit: Lesser files. Clean folder structure.
+    - Important Benefit: can pass props to Styled Component and thus can dynamically change styles. And hence the styled components are reusable.
+
+### 11.2 Creating Styled Components
+1. Install: `npm install styled-components`
+2. Create styled components in component.js using tagged fns. styled.div or styled.h1 or styled.button etc
+3. Organizing styled components (Thumb Rules): 
+    - If the component is unique and there is less amount of code then keep it in js file. 
+    - If amount of code is more, create separate styled component js file. 
+    - If component is common and can be reused, create seaparate file and store all styled components in src/styled-components/ folder.
+4. Note: keep all global styles in index.css file.
+5. Start adding styled-components for all the UI Components.
+6. Be careful while adding styles to sub elements in styled components. It will be applied to all the child components as well. Better to add direct descendant using >
