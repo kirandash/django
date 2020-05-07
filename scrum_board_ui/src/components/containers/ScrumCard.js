@@ -2,17 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ScrumCard from '../ui/ScrumCard';
-import { removeCard } from '../../actions/card';
+// import { removeCard } from '../../actions/card';
+import { deleteCard } from '../../thunks/card';
 
 const ScrumCardContainer = (props) => {
-    const {cards, listId} = props;
+    const {cards} = props;
     return (
-        <ScrumCard cards={cards} listId={listId} removeCard={props.onRemoveCard} />
+        <ScrumCard cards={cards} removeCard={props.onRemoveCard} />
     );
 }
 
 const mapDispatchToProps = dispatch => ({
-    onRemoveCard: (cardId, listId) => dispatch(removeCard(cardId, listId)),
+    onRemoveCard: (card) => dispatch(deleteCard(card)),
 });
 
 export default connect(null, mapDispatchToProps)(ScrumCardContainer);

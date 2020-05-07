@@ -5,6 +5,9 @@ import {
     updateCardInProgress,
     updateCardSuccess,
     updateCardFailure,
+    deleteCardInProgress,
+    deleteCardSuccess,
+    deleteCardFailure,
  } from '../actions/card';
 
 export const createCard = (title, id) => async(dispatch, getState) => {
@@ -44,5 +47,25 @@ export const updateCard = (card) => async(dispatch, getState) => {
         dispatch(updateCardSuccess(cardDetails));
     } catch(e) {
         dispatch(updateCardFailure());
+    }
+}
+
+export const deleteCard = (card) => async(dispatch, getState) => {
+    const { id: cardId } = card;
+    try {
+        dispatch(deleteCardInProgress());
+        const response = await fetch(`http://127.0.0.1:8000/mainboard/cards/${cardId}/`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: cardId
+            })
+        }); // Delete Request does not return any payload
+        dispatch(deleteCardSuccess(card));
+    } catch(e) {
+        dispatch(deleteCardFailure())
     }
 }

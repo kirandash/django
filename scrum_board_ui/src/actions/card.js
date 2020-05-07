@@ -10,6 +10,10 @@ const UPDATE_CARD_IN_PROGRESS = 'UPDATE_CARD_IN_PROGRESS';
 const UPDATE_CARD_SUCCESS = 'UPDATE_CARD_SUCCESS';
 const UPDATE_CARD_FAILURE = 'UPDATE_CARD_FAILURE';
 
+const DELETE_CARD_IN_PROGRESS = 'DELETE_CARD_IN_PROGRESS';
+const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS';
+const DELETE_CARD_FAILURE = 'DELETE_CARD_FAILURE';
+
 export const actionTypes = {
     CREATE_CARD,
     REMOVE_CARD,
@@ -18,7 +22,10 @@ export const actionTypes = {
     CREATE_CARD_FAILURE,
     UPDATE_CARD_IN_PROGRESS,
     UPDATE_CARD_SUCCESS,
-    UPDATE_CARD_FAILURE
+    UPDATE_CARD_FAILURE,
+    DELETE_CARD_IN_PROGRESS,
+    DELETE_CARD_SUCCESS,
+    DELETE_CARD_FAILURE,
 }; // Export Action Types so that it can be imported in other files
 
 // CREATE_CARD Action Creator
@@ -59,4 +66,18 @@ export const updateCardSuccess = (card) => ({ // Card payload will come from thu
 
 export const updateCardFailure = () => ({
     type: UPDATE_CARD_FAILURE
+});
+
+// DELETE_CARD API Action Creators
+export const deleteCardInProgress = () => ({
+    type: DELETE_CARD_IN_PROGRESS
+});
+
+export const deleteCardSuccess = (card) => ({
+    type: DELETE_CARD_SUCCESS,
+    payload: { card }
+});
+
+export const deleteCardFailure = () => ({
+    type: DELETE_CARD_FAILURE
 });

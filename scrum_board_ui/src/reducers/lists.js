@@ -10,6 +10,9 @@ const {
     UPDATE_CARD_IN_PROGRESS,
     UPDATE_CARD_SUCCESS,
     UPDATE_CARD_FAILURE,
+    DELETE_CARD_IN_PROGRESS,
+    DELETE_CARD_SUCCESS,
+    DELETE_CARD_FAILURE,
 } = actionTypes; // Destructuring actionTypes to get our imported action types
 
 const {
@@ -137,6 +140,35 @@ export const lists = (initialListsState = { isLoading: false, data: [] }, action
             }
         }
         case UPDATE_CARD_FAILURE: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false, // API still loading
+            }
+        }
+        case DELETE_CARD_SUCCESS: {
+            const { card: { id: cardId, list: listId } } = payload;
+            const indexOfListId = initialListsState.data.map(list => list.id).indexOf(listId); // index of Card to delete
+            const test = {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false,
+                data: [
+                    ...initialListsState.data.slice(0, indexOfListId), // all objects before target object
+                    {
+                        ...initialListsState.data[indexOfListId],
+                        cards: initialListsState.data[indexOfListId].cards.filter(card => card.id !== cardId)
+                    },
+                    ...initialListsState.data.slice(indexOfListId + 1) // all objects after target object
+                ]
+            }
+            return test;
+        }
+        case DELETE_CARD_IN_PROGRESS: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: true, // API still loading
+            }
+        }
+        case DELETE_CARD_FAILURE: {
             return {
                 ...initialListsState, // rest of the state untouched
                 isLoading: false, // API still loading
