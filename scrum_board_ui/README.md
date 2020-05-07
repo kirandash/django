@@ -224,3 +224,6 @@ Check: scrum_board_project
 3. Create new thunk createCard in thunks/card.js file: to handle POST API call.
 4. Call thunk from AddCardForm.js container file.
 5. AddCardForm.js ui file: switch list id from index to id from database.
+
+### 10.5 Add Edit Form for each Cards
+1. Create ScrumCardDetails.js container and ui components to hold the detail component. Since we will need to add useState hook. Which can not be done in the map loop of ScrumCard.js
