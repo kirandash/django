@@ -7,6 +7,9 @@ const {
     CREATE_CARD_IN_PROGRESS,
     CREATE_CARD_SUCCESS,
     CREATE_CARD_FAILURE,
+    UPDATE_CARD_IN_PROGRESS,
+    UPDATE_CARD_SUCCESS,
+    UPDATE_CARD_FAILURE,
 } = actionTypes; // Destructuring actionTypes to get our imported action types
 
 const {
@@ -101,6 +104,39 @@ export const lists = (initialListsState = { isLoading: false, data: [] }, action
             }
         }
         case CREATE_CARD_FAILURE: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false, // API still loading
+            }
+        }
+        case UPDATE_CARD_SUCCESS: {
+            const { card, card: { id: cardId, list: listId } } = payload;
+            const indexOfListId = initialListsState.data.map(list => list.id).indexOf(listId); // index of List to update
+            const indexOfCardId = initialListsState.data[indexOfListId].cards.map(card => card.id).indexOf(cardId); // index of Card to update
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: false,
+                data: [
+                    ...initialListsState.data.slice(0, indexOfListId), // all List objects before target List object
+                    {
+                        ...initialListsState.data[indexOfListId], // all items in the array
+                        cards: [
+                            ...initialListsState.data[indexOfListId].cards.slice(0, indexOfCardId), // all Card objects before target Card object
+                            card, // overwriting target card object
+                            ...initialListsState.data[indexOfListId].cards.slice(indexOfCardId + 1) // all objects after target Card object
+                        ]
+                    }, // target object in lists array to update
+                    ...initialListsState.data.slice(indexOfListId + 1) // all objects after target List object
+                ]
+            }; // lists array
+        }
+        case UPDATE_CARD_IN_PROGRESS: {
+            return {
+                ...initialListsState, // rest of the state untouched
+                isLoading: true, // API still loading
+            }
+        }
+        case UPDATE_CARD_FAILURE: {
             return {
                 ...initialListsState, // rest of the state untouched
                 isLoading: false, // API still loading

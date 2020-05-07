@@ -1,4 +1,11 @@
-import { createCardInProgress, createCardSuccess, createCardFailure } from '../actions/card';
+import { 
+    createCardInProgress, 
+    createCardSuccess,
+    createCardFailure,
+    updateCardInProgress,
+    updateCardSuccess,
+    updateCardFailure,
+ } from '../actions/card';
 
 export const createCard = (title, id) => async(dispatch, getState) => {
     try {
@@ -20,3 +27,22 @@ export const createCard = (title, id) => async(dispatch, getState) => {
         dispatch(createCardFailure());
     }
 };
+
+export const updateCard = (card) => async(dispatch, getState) => {
+    const { id } = card;
+    try {
+        dispatch(updateCardInProgress());
+        const response = await fetch(`http://127.0.0.1:8000/mainboard/cards/${id}/`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(card)
+        });
+        const cardDetails = await response.json();
+        dispatch(updateCardSuccess(cardDetails));
+    } catch(e) {
+        dispatch(updateCardFailure());
+    }
+}

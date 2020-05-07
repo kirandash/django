@@ -6,12 +6,19 @@ const CREATE_CARD_IN_PROGRESS = 'CREATE_CARD_IN_PROGRESS';
 const CREATE_CARD_SUCCESS = 'CREATE_CARD_SUCCESS';
 const CREATE_CARD_FAILURE = 'CREATE_CARD_FAILURE';
 
+const UPDATE_CARD_IN_PROGRESS = 'UPDATE_CARD_IN_PROGRESS';
+const UPDATE_CARD_SUCCESS = 'UPDATE_CARD_SUCCESS';
+const UPDATE_CARD_FAILURE = 'UPDATE_CARD_FAILURE';
+
 export const actionTypes = {
     CREATE_CARD,
     REMOVE_CARD,
     CREATE_CARD_IN_PROGRESS,
     CREATE_CARD_SUCCESS,
     CREATE_CARD_FAILURE,
+    UPDATE_CARD_IN_PROGRESS,
+    UPDATE_CARD_SUCCESS,
+    UPDATE_CARD_FAILURE
 }; // Export Action Types so that it can be imported in other files
 
 // CREATE_CARD Action Creator
@@ -38,4 +45,18 @@ export const createCardSuccess = (card) => ({
 
 export const createCardFailure = () => ({
     type: CREATE_CARD_FAILURE
+});
+
+// UPDATE_CARD API Action Creators
+export const updateCardInProgress = () => ({
+    type: UPDATE_CARD_IN_PROGRESS
+});
+
+export const updateCardSuccess = (card) => ({ // Card payload will come from thunk/API. So check beforehand the payload structure
+    type: UPDATE_CARD_SUCCESS,
+    payload: { card }
+});
+
+export const updateCardFailure = () => ({
+    type: UPDATE_CARD_FAILURE
 });

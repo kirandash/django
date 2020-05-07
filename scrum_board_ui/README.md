@@ -227,3 +227,9 @@ Check: scrum_board_project
 
 ### 10.5 Add Edit Form for each Cards
 1. Create ScrumCardDetails.js container and ui components to hold the detail component. Since we will need to add useState hook. Which can not be done in the map loop of ScrumCard.js
+
+### 10.6 Saving Edit Card data with PUT
+1. Create UPDATE_CARD_IN_PROGRESS, SUCCESS and FAILURE actions in actions/list.js file
+2. Create new thunk updateCard in thunks/card.js file: to handle PUT API call.
+3. Add Code in lists reducer at reducers/lists.js file to handle state management for the above 3 actions dispatched from thunk.
+4. Dispatch saveCard from ScrumCardDetails ui component and call the thunk/API from ScrumCardDetails container component.
