@@ -244,3 +244,18 @@ Check: scrum_board_ui
 7. After adding the code, restart the server and reload the API at: http://127.0.0.1:8000/mainboard/cards/. Note: Now along with GET option, we also have POST option if we scroll down the page.
 8. Visit: http://127.0.0.1:8000/mainboard/lists/1/ to see PUT and DELETE options as well for individual list and card item.
 9. Note: Now, loading the API from Frontend will be failing at http://localhost:3000/. Because, the API endpoint created by router class of djangorestframework expects a slash at the end. So, in Frontend code change the endpoint URL in thunks/list.js to http://127.0.0.1:8000/mainboard/lists/.
+
+## 10.3 to ## 10.7 - Frontend
+Check: scrum_board_ui
+
+## 11 Styled Components - Frontend
+Check: scrum_board_ui
+
+## 12 Backend Views for Login Logout
+**Summary:**
+1. This app is not related to our mainboard app. So we will create a new app.
+2. Add Custom ApiView classes
+3. Note: For Stand alone Django applications, we could have used the Django default packages for implementing login and logout. But in this project, since we are going to call the API from React, we will create our custom views.
+
+**Steps:**
+1. Make sure venv is activated. Create new app `auth_api`: `python manage.py startapp auth_api`. **Note**: we are not calling the app `auth` because that's the name used by default django authentication app.
