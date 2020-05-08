@@ -22,4 +22,5 @@ urlpatterns = [
     path('mainboard/', include('mainboard.urls')), # We will load all the views for mainboard app through mainboard. Ex: mainboard/lists, mainboard/cards.
     # It tells Django that, In url once mainboard/ is matched, for the rest of the url look in mainboard/urls.py file
     # using regexp: url(r'^mainboard/', include('mainboard.urls')), note: at the ending of regex string we don't have $ since that is not the end of the string, the rest of the url path is to be matched from mainboard/urls.py file
+    path('auth_api/', include('auth_api.urls')), # We will load all the views for auth_api app through auth_api. Ex: auth_api/login, auth_api/logout.
 ]

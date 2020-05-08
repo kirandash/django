@@ -259,3 +259,14 @@ Check: scrum_board_ui
 
 **Steps:**
 1. Make sure venv is activated. Create new app `auth_api`: `python manage.py startapp auth_api`. **Note**: we are not calling the app `auth` because that's the name used by default django authentication app.
+2. Now: Normally our views should go in `views.py` but since our views will be AJAX calls from React, we will create a new file `api.py`
+3. Create `api.py` file with LoginView and LogoutView classes, inherited from views.APIView. It will handle login and logout requests from HTML template.
+4. Create serializers.py file to serialize/convert User data from python to JSON before sending it to Frontend REST API as a response.
+5. Map the views to urls using urlpatterns in urls.py file.
+6. Test: http://127.0.0.1:8000/auth_api/login/: It should load and show a warning that GET is not allowed.
+7. Delete unnecessary files from auth_api module
+    - admin.py
+    - apps.py
+    - models.py
+    - tests.py
+    - views.py

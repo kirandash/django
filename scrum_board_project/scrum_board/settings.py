@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', # auth API is already installed by default from Django. That's why we had to name our app auth_api. Can not be removed. Since Django depends on it.
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework', # To get a nice interface to check the REST API in browser. Not required if we can test with curl
     'mainboard',
     'corsheaders',
+    'auth_api',
 ]
 
 MIDDLEWARE = [
