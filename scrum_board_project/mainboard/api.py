@@ -1,5 +1,6 @@
 # from rest_framework.generics import ListAPIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import permissions
 
 from .serializers import ListSerializer, CardSerializer
 from .models import List, Card
@@ -9,8 +10,10 @@ from .models import List, Card
 class ListViewSet(ModelViewSet):
     queryset = List.objects.all() # Get all rows from List table (mainboard_list) from DB
     serializer_class = ListSerializer # convert queried data into JSON format
+    permission_classes = (permissions.IsAuthenticated,) # permission classes applied to ListViewset: tupel with one element. Note: for tupel we must add a comma if it's a single element only. Otherwise Python will think of it as a value in paranthesis
 
 # class CardApi(ListAPIView):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all() # Get all rows from Card table (mainboard_card) from DB
     serializer_class = CardSerializer # convert queried data into JSON format
+    permission_classes = (permissions.IsAuthenticated,)

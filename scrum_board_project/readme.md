@@ -251,7 +251,8 @@ Check: scrum_board_ui
 ## 11 Styled Components - Frontend
 Check: scrum_board_ui
 
-## 12 Backend Views for Login Logout
+## 12 Login, Authentication and Routing
+### 12.1 Backend Views for Login Logout
 **Summary:**
 1. This app is not related to our mainboard app. So we will create a new app.
 2. Add Custom ApiView classes
@@ -270,3 +271,16 @@ Check: scrum_board_ui
     - models.py
     - tests.py
     - views.py
+
+### 12.2 Configuring Django for Authentication and CSRF Protection
+1. Now we have our Login and Logout views ready. So, we can restrict few parts of our application to be accessible for only logged in users.
+2. **CSRF Protection**: When a user is logged in, Django automatically uses CSRF Protection for our views.
+    - CSRF Protection is applied on requests that change data on the server. ie **POST, PUT, DELETE** requests. Not required for GET requests.
+    - It helps in preventing **cross-site** requests.
+    - Does so by setting a **csrf-token cookie**. A securely generated token number.
+    - Client should send back token as a header. (Not cookie)
+
+**Configuring Authentication:**
+1. We will restrict API views. ListViewset and CardViewset in mainboard/api.py
+2. mainboard/api.py: add IsAuthenticated permission classes.
+3. Now if we load http://localhost:3000/, the lists API will throw an error: 403 forbidden. Task: Add error handling in Frontend code at the end of course.
