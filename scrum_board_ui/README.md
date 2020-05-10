@@ -263,3 +263,13 @@ Check: scrum_board_project
 4. Note: keep all global styles in index.css file.
 5. Start adding styled-components for all the UI Components.
 6. Be careful while adding styles to sub elements in styled components. It will be applied to all the child components as well. Better to add direct descendant using >
+
+## 12
+### 12.1 -12.2 Django 
+Check: scrum_board_project
+
+### 12.3 Configuring React for Authentication and CSRF Protection
+**Component Createion**
+1. Unrelated: Modified thunks code to dispatch success only if response status is ok.
+2. Create LoginForm Container and UI Components
+3. Add component to App.js
