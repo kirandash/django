@@ -105,3 +105,26 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
     - This will create .vscode/settings.json file for us.
     - copy paste the setings from article.
     - Change `"python.linting.pylintPath": "pylint",`
+
+## 4 React project setup - FE
+### 4.1 Create React Project using create-react-app tool
+1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `cd frontend` & `npx create-react-app gui`. Note: We don't need the venv that we were using during django. Because all the packages we install in react will be installed at project level only. venv can be deactivated by running: `deactivate`. (blog_env) prompt will now disappear from terminal.
+
+### 5.2 Understanding Project structure
+1. The project created by create-react-app has 2 main folders
+    - **public**: to hold publicly accessible resources of our app
+    - **src**: will hold actual react code
+2. **public folder - public/index.html**:
+    - index html file is present inside public folder. This file is going to be sent to the client when react app loads.
+    - **div with id root**: index.html file has a div with id `root` which is the target where our react app is going to load.
+    - There is a **noscript** tag which will execute if JS is disabled for client browser. So if client's browser has JS disabled, client will get the message written in noscript tag.
+3. **src folder**:
+    - **index.js**: Code in this will help us insert our React App into index.html file with `ReactDOM.render()`. ReactDOM is an extension of React that helps us with rendering react components on to DOM.
+    - **index.css**: Holds global css for our app. All styles written here will be applied to all the components in our App.
+    - **App.js**: Holds JS code for our root React component
+    - **App.css**: Holds CSS code for our root React component
+4. **package.json**:
+    - Holds details of all the packages that are used so far.
+    - Also holds the scripts for starting dev server, creating a build and testing our app.
+5. Run the command `cd gui` & `npm run start` to run the project on localhost:3000
+6. Change app title to Blog in index.html file.
