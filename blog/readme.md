@@ -92,3 +92,16 @@
 1. Make sure venv is activated
 2. Install django-rest-framework: `pip install djangorestframework`. Current version: 3.11.0
 3. Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl).
+
+### 3.5 Configure Django Project in VSCode
+https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
+1. **Install extensions**:
+    - Python – for full Python language support
+    - Django Template – for template file source highlighting
+    - Django Snippets – for common Django code
+2. **Workspace Settings for VSCode**
+    - `pip install pep8`, `pip install autopep8`, `pip install pylint`
+    - Press Cmd + Shift + P: Open Workspace Settings (JSON)
+    - This will create .vscode/settings.json file for us.
+    - copy paste the setings from article.
+    - Change `"python.linting.pylintPath": "pylint",`
