@@ -49,8 +49,8 @@
 8. Styled Components: For better styling
 9. For communicating with Django: we will use **Django REST Framework** to make API calls.
 
-## 3. Setting up Django Project
-### 3.1 Install Python
+## 3. Setting up Django Project - BE
+### 3.1 Install Python - BE
 1. **Python**: https://www.python.org/downloads/. Current version: 3.8.2. 
     - Python 3.x includes **venv** for project environment.
     - Python 2.x uses **virtualenv** for project environment.
@@ -58,7 +58,7 @@
 3. Check the version by typing `python3 --version`. (Python 3.8.2)
 5. Python3 installs pip3 script to mac automatically.
 
-### 3.2 Creating a Project Environment
+### 3.2 Creating a Project Environment - BE
 1. Create a virtual environment for project using venv tool from Python3:
     - `mkdir blog`, `cd blog`, `mkdir backend`, `mkdir frontend`, `cd backend`
     - `python3 -m venv blog_env`. Will create `blog_env` venv folder for us inside backend directory. Add blog_env to gitignore list
@@ -73,7 +73,7 @@
     - **lib/ Folder** used to look up installed packages in our environments.
     - **pyvenv.cfg File**: To configure venv.
 
-### 3.3 Install Django & Create Django Project
+### 3.3 Install Django & Create Django Project - BE
 1. **Activate venv**: `. blog_env/bin/activate`
 2. Check the terminal should prompt `(blog_env)` in the beginning.
 3. **Install Django**: https://www.djangoproject.com/download/. Current version: 3.0.6
@@ -82,7 +82,7 @@
 6. **Create django project**: Run `django-admin startproject blog`
 7. Rename the project folder to `src` or any other name viz `blog_project` to confusion with same root app name `blog`.
 
-### 3.4 Install Django REST Framework
+### 3.4 Install Django REST Framework - BE
 https://www.django-rest-framework.org/
 1. We will use Django REST framework to make our data available to public through REST services.
 
@@ -96,7 +96,7 @@ https://www.django-rest-framework.org/
 4. Add url for login, logout auth view in urls.py file.
 5. Add REST_FRAMEWORK settings to project settings.py file.
 
-### 3.5 Configure Django Project in VSCode
+### 3.5 Configure Django Project in VSCode - BE
 https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 1. **Install extensions**:
     - Python – for full Python language support
@@ -114,15 +114,15 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 2. Handle migrations: `python manage.py migrate`. Will create db.sqlite file.
 3. Run the server again & check project at: http://127.0.0.1:8000/
 
-### 3.7 Create articles app
+### 3.7 Create articles app - BE
 1. `python manage.py startapp articles`
 2. Add articles to list of INSTALLED_APPS in settings.py file.
 
 ## 4 React project setup - FE
-### 4.1 Create React Project using create-react-app tool
+### 4.1 Create React Project using create-react-app tool - FE
 1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `cd frontend` & `npx create-react-app gui`. Note: We don't need the venv that we were using during django. Because all the packages we install in react will be installed at project level only. venv can be deactivated by running: `deactivate`. (blog_env) prompt will now disappear from terminal.
 
-### 5.2 Understanding Project structure
+### 5.2 Understanding Project structure - FE
 1. The project created by create-react-app has 2 main folders
     - **public**: to hold publicly accessible resources of our app
     - **src**: will hold actual react code
@@ -140,3 +140,10 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
     - Also holds the scripts for starting dev server, creating a build and testing our app.
 5. Run the command `cd gui` & `npm run start` to run the project on localhost:3000
 6. Change app title to Blog in index.html file.
+
+## 6. Models - BE
+### 6.1 Create Article model and register - BE
+1. open **articles/models.py**: Add Data structure code.
+2. `python manage.py makemigrations`
+3. `python manage.py migrate`
+4. Register in admin.py file using `admin.site.register`
