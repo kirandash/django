@@ -90,7 +90,7 @@
 
 **Steps**:
 1. Make sure venv is activated
-2. Install django-rest-framework: `pip install djangorestframework`. Current version: 3.11.0
+2. Install django-rest-framework: `pip install djangorestframework`. (Current version: 3.11.0). Installed in bin/lib/python/site-packages
 3. Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl).
 
 ### 3.5 Configure Django Project in VSCode
@@ -105,6 +105,15 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
     - This will create .vscode/settings.json file for us.
     - copy paste the setings from article.
     - Change `"python.linting.pylintPath": "pylint",`
+
+### 3.6 Run Django Server
+1. `cd src` & `python manage.py runserver`.
+2. Handle migrations: `python manage.py migrate`. Will create db.sqlite file.
+3. Run the server again & check project at: http://127.0.0.1:8000/
+
+### 3.7 Create articles app
+1. `python manage.py startapp articles`
+2. Add articles to list of INSTALLED_APPS in settings.py file.
 
 ## 4 React project setup - FE
 ### 4.1 Create React Project using create-react-app tool
