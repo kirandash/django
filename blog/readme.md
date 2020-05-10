@@ -83,6 +83,7 @@
 7. Rename the project folder to `src` or any other name viz `blog_project` to confusion with same root app name `blog`.
 
 ### 3.4 Install Django REST Framework
+https://www.django-rest-framework.org/
 1. We will use Django REST framework to make our data available to public through REST services.
 
 **Summary**:
@@ -92,6 +93,8 @@
 1. Make sure venv is activated
 2. Install django-rest-framework: `pip install djangorestframework`. (Current version: 3.11.0). Installed in bin/lib/python/site-packages
 3. Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl).
+4. Add url for login, logout auth view in urls.py file.
+5. Add REST_FRAMEWORK settings to project settings.py file.
 
 ### 3.5 Configure Django Project in VSCode
 https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
