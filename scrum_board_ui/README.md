@@ -276,3 +276,12 @@ Check: scrum_board_project
 
 **Add State to LoginForm Component**:
 1. Integrate useState to LoginForm ui component
+
+**Add Login, Logout Redux Flow**:
+1. Create LOGIN_IN_PROGRESS, SUCCESS and FAILURE actions in actions/login.js file
+2. Create new thunk login in thunks/login.js file: to handle Login API call.
+3. Create new reducer for login at reducers/login.js file to handle state management for the above 3 actions dispatched from thunk. Add the new login reducer to list of reducers in store.js file.
+4. Dispatch login from LoginForm ui component and call the thunk/API login from LoginForm container component.
+5. Create a new selector file to handle login.js selectors.
+6. Repeat all for LOGOUT action as well.
+7. Test login, logout by loading: http://localhost:3000/. Note, on reloading the page, user session will not be persisted. We will have to save the CSRF Token for that.

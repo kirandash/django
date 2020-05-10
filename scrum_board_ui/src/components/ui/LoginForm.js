@@ -23,7 +23,9 @@ const LogoutButton = styled.button`
     color: white;
 `;
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+    const { user, login, logout } = props;
+
     const [userDetails, setUserDetails] = useState({
         username: '',
         password: ''
@@ -42,14 +44,14 @@ const LoginForm = () => {
 
     return (
         <div>
-            <Wrapper>
+            {!user.username && <Wrapper>
                 <Input type="text" name="username" placeholder="Username" onChange={handleChange} value={username} />
                 <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={password} />
-                <Button>Login</Button>
-            </Wrapper>
-            <Wrapper>
-                <LogoutButton>Logout</LogoutButton>
-            </Wrapper>
+                <Button onClick={() => login(userDetails)}>Login</Button>
+            </Wrapper>}
+            {user.username && <Wrapper>
+                <LogoutButton onClick={logout}>Logout</LogoutButton>
+            </Wrapper>}
         </div>
     )
 };

@@ -7,9 +7,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { lists } from '../reducers/lists';
+import { login } from '../reducers/login';
 
 const reducers = {
     lists,
+    login,
 }; // Will contain list of all reducers in our app
 
 const rootReducer = combineReducers(reducers); // Combines all our reducers in a form that can be passed to createStore fn
