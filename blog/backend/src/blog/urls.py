@@ -20,4 +20,5 @@ urlpatterns = [
     # If you're intending to use the browsable API you'll probably also want to add REST framework's login and logout views.
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include('articles.api.urls')),
 ]

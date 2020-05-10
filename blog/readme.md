@@ -122,7 +122,7 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 ### 4.1 Create React Project using create-react-app tool - FE
 1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `cd frontend` & `npx create-react-app gui`. Note: We don't need the venv that we were using during django. Because all the packages we install in react will be installed at project level only. venv can be deactivated by running: `deactivate`. (blog_env) prompt will now disappear from terminal.
 
-### 5.2 Understanding Project structure - FE
+### 4.2 Understanding Project structure - FE
 1. The project created by create-react-app has 2 main folders
     - **public**: to hold publicly accessible resources of our app
     - **src**: will hold actual react code
@@ -141,9 +141,29 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 5. Run the command `cd gui` & `npm run start` to run the project on localhost:3000
 6. Change app title to Blog in index.html file.
 
-## 6. Models - BE
-### 6.1 Create Article model and register - BE
+## 5. Models and API - BE
+### 5.1 Create Article model and register - BE
 1. open **articles/models.py**: Add Data structure code.
 2. `python manage.py makemigrations`
 3. `python manage.py migrate`
 4. Register in admin.py file using `admin.site.register`
+
+### 5.2 Create superuser to access admin - BE
+1. `python manage.py createsuperuser` Enter details
+2. Login to admin: http://127.0.0.1:8000/admin
+3. Select Articles Model - Create 2 articles.
+
+### 5.3 Create API for public access of Articles model - BE
+https://www.django-rest-framework.org/api-guide/serializers/
+1. Serializers convert model from Python into JSON object that we can then use in our React app
+2. Create `src/articles/api` folder.
+3. Initialize the api folder with `__init__.py` file. This tells interpreter that the folder has python code
+4. Create `src/articles/api/serializers.py` file to convert model from Python into JSON.
+5. Create `src/articles/api/views.py` file - a view for the API serializers class. https://www.django-rest-framework.org/api-guide/generic-views/
+    - Create ArticleListView using **ListAPIView**: https://www.django-rest-framework.org/api-guide/generic-views/#listapiview
+    - Used for read-only endpoints to represent a collection of model instances.
+6. Also create a ArticleDetailView using **RetrieveAPIView** Used for read-only endpoints to represent a single model instance.
+    - https://www.django-rest-framework.org/api-guide/generic-views/#retrieveapiview
+7. Create `src/articles/api/urls.py` file - to create endpoints for API that will be accessible publicly.
+8. Include articles.api.urls in project root urls.py file.
+9. Check if the API works, by visiting http://127.0.0.1:8000/api/ and detail view at http://127.0.0.1:8000/api/1
