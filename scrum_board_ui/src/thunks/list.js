@@ -12,6 +12,7 @@ export const loadLists = () => async(dispatch, getState) => { // loadLists is a 
         dispatch(loadListsInProgress()); // Dispatch In Progress action
         const response = await fetch('http://127.0.0.1:8000/mainboard/lists/'); // Calling lists API from Django server
         const lists = await response.json(); // Get the response in JSON format (Mandatory with fetch calls. Not required when we use addons like Axios to do API calls)
+        if(response.ok)
         dispatch(loadListsSuccess(lists)); // dispatch success action
     } catch(e) {
         dispatch(loadListsFailure());
@@ -33,6 +34,7 @@ export const createList = (name) => async(dispatch, getState) => {
             })
         });
         const list = await response.json();
+        if(response.ok)
         dispatch(createListSuccess(list));
     } catch(e) {
         dispatch(createListFailure());

@@ -25,6 +25,7 @@ export const createCard = (title, id) => async(dispatch, getState) => {
             })
         });
         const card = await response.json();
+        if(response.ok)
         dispatch(createCardSuccess(card));
     } catch(e) {
         dispatch(createCardFailure());
@@ -44,6 +45,7 @@ export const updateCard = (card) => async(dispatch, getState) => {
             body: JSON.stringify(card)
         });
         const cardDetails = await response.json();
+        if(response.ok)
         dispatch(updateCardSuccess(cardDetails));
     } catch(e) {
         dispatch(updateCardFailure());
@@ -64,6 +66,7 @@ export const deleteCard = (card) => async(dispatch, getState) => {
                 id: cardId
             })
         }); // Delete Request does not return any payload
+        if(response.ok)
         dispatch(deleteCardSuccess(card));
     } catch(e) {
         dispatch(deleteCardFailure())
