@@ -273,3 +273,6 @@ Check: scrum_board_project
 1. Unrelated: Modified thunks code to dispatch success only if response status is ok.
 2. Create LoginForm Container and UI Components
 3. Add component to App.js
+
+**Add State to LoginForm Component**:
+1. Integrate useState to LoginForm ui component

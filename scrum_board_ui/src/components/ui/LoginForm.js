@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Styled Components
@@ -23,17 +23,35 @@ const LogoutButton = styled.button`
     color: white;
 `;
 
-const LoginForm = () => (
-    <div>
-        <Wrapper>
-            <Input type="text" name="username" placeholder="Username" />
-            <Input type="password" name="password" placeholder="Password" />
-            <Button>Login</Button>
-        </Wrapper>
-        <Wrapper>
-            <LogoutButton>Logout</LogoutButton>
-        </Wrapper>
-    </div>
-);
+const LoginForm = () => {
+    const [userDetails, setUserDetails] = useState({
+        username: '',
+        password: ''
+    });
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+
+        setUserDetails(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
+
+    const { username, password } = userDetails;
+
+    return (
+        <div>
+            <Wrapper>
+                <Input type="text" name="username" placeholder="Username" onChange={handleChange} value={username} />
+                <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={password} />
+                <Button>Login</Button>
+            </Wrapper>
+            <Wrapper>
+                <LogoutButton>Logout</LogoutButton>
+            </Wrapper>
+        </div>
+    )
+};
 
 export default LoginForm;
