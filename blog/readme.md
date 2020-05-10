@@ -81,3 +81,14 @@
     - It will install all the python code and also adds a script in bin directory called `django-admin` which we can use to run django related commands.
 6. **Create django project**: Run `django-admin startproject blog`
 7. Rename the project folder to `src` or any other name viz `blog_project` to confusion with same root app name `blog`.
+
+### 3.4 Install Django REST Framework
+1. We will use Django REST framework to make our data available to public through REST services.
+
+**Summary**:
+1. Installing **djangorestframework**: This will generate REST APIs for our App. 
+
+**Steps**:
+1. Make sure venv is activated
+2. Install django-rest-framework: `pip install djangorestframework`. Current version: 3.11.0
+3. Add `rest_framework` to list of `INSTALLED_APPS` in main project settings.py file. To get a nice interface to check the REST API in browser. (Not required if we can test with curl).
