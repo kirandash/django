@@ -105,7 +105,7 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 2. **Workspace Settings for VSCode**
     - `pip install pep8`, `pip install autopep8`, `pip install pylint`
     - Press Cmd + Shift + P: Open Workspace Settings (JSON)
-    - This will create .vscode/settings.json file for us.
+    - This will create .vscode/settings.json file for us. Move the folder to backend/ since we want the settings to be applied only for backend folder.
     - copy paste the setings from article.
     - Change `"python.linting.pylintPath": "pylint",`
 
@@ -167,3 +167,20 @@ https://www.django-rest-framework.org/api-guide/serializers/
 7. Create `src/articles/api/urls.py` file - to create endpoints for API that will be accessible publicly.
 8. Include articles.api.urls in project root urls.py file.
 9. Check if the API works, by visiting http://127.0.0.1:8000/api/ and detail view at http://127.0.0.1:8000/api/1
+
+## 6. Integrate API to React - FE
+### 6.1 Ant Design, React Container, Component Creation - Layout, Aricle, ArticleListView
+1. `cd gui` and `npm run start`
+2. Install **Ant design**: 
+    - https://ant.design/docs/react/introduce
+    - pre-styled library. alternative to material design. `npm install antd`
+3. import .css file in App.js.
+4. Create Layout.js file 
+    - Copy basic "header-content-footer" layout code from: https://ant.design/components/layout/
+    - with props input and set it's content using `{props.children}`. So it will serve as a wrapper and display in props.children, whatever content it is wrapped around.
+5. Add CSS to App.css file.
+6. Create a List component in components/Article.js.
+    - https://ant.design/components/list/
+    - Copy ant design footer part. List into components/Article.js    
+7. Create a container ArticleListView.js to hold Article
+8. Add ArticleListView container to App.js Layout wrapper.
