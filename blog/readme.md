@@ -211,7 +211,7 @@ https://www.django-rest-framework.org/api-guide/serializers/
 4. Add BaseRouter to App.js and add BrowserRouter.
 
 ### 6.4 Add navigation links - FE, BE
-1. use Link from react-router-dom.
+1. use **Link** from react-router-dom.
 2. In backend/src/articles/api: add id so that id appears in JSON response.
 3. use that ID to navigate to articleDetails view.
 
@@ -256,3 +256,9 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 3. Create ArticleViewSet class extending from viewsets.ModelViewSet.
 4. In urls.py use `DefaultRouter()` from restframework. 
 5. Test all 4 request types at: http://127.0.0.1:8000/api/articles/ and http://127.0.0.1:8000/api/articles/1/
+
+## 8 POST, PUT, DELETE requests - FE
+### 8.1 Create Form - FE
+1. https://ant.design/components/form/
+2. Create components/Form.js
+3. Add CustomForm to ArticleListView.js and ArticleDetailView.js
