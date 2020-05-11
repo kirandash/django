@@ -108,6 +108,7 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
     - This will create .vscode/settings.json file for us.
     - copy paste the setings from article.
     - Change `"python.linting.pylintPath": "pylint",`
+3. Note, .vscode must remain at root level. Move .vscode to backend folder while working with frontend code, since the settings are specific to python code. Or for future projects: better create 2 different workspaces.
 
 ### 3.6 Run Django Server
 1. `cd src` & `python manage.py runserver`.
@@ -220,15 +221,13 @@ https://www.django-rest-framework.org/api-guide/serializers/
 https://www.django-rest-framework.org/api-guide/generic-views/#listapiview
 1. **ListAPIView**: Used for read-only endpoints to represent a collection of model instances. Thus can only be used for GET calls.
 2. Thus we must use a generic view that supports write features as well. Ex: **ListCreateAPIView**
-3. Or also we can use viewsets instead of generic views: to create GET, PUT, POST, DELETE all at once. 
-    - https://www.django-rest-framework.org/api-guide/viewsets/#modelviewset
-4. We will use **CreateAPIView**: 
+3. We will use **CreateAPIView**: 
     - https://www.django-rest-framework.org/api-guide/generic-views/#createapiview
     - Used for create-only endpoints.
     - Provides a post method handler.
-5. src/articles/api/views.py: Create ArticleCreateView class inherited form CreateAPIView genericview.
-6. Add view to url: src/articles/api/urls.py file.
-7. Test the POST API endpoint at http://127.0.0.1:8000/api/create/ by creating a new article.
+4. src/articles/api/views.py: Create ArticleCreateView class inherited form CreateAPIView genericview.
+5. Add view to url: src/articles/api/urls.py file.
+6. Test the POST API endpoint at http://127.0.0.1:8000/api/create/ by creating a new article.
 
 **Update existing Article with PUT using UpdateAPIView**
 https://www.django-rest-framework.org/api-guide/generic-views/#updateapiview
@@ -249,3 +248,11 @@ https://www.django-rest-framework.org/api-guide/generic-views/#destroyapiview
 2. src/articles/api/views.py: Create ArticleUpdateView class inherited from UpdateAPIView
 3. Add view to url: src/articles/api/urls.py file.
 4. Test DELETE API at: http://127.0.0.1:8000/api/2/delete/
+
+### 7.2 ViewSets to handle GET, POST, PUT, DELETE - BE:
+https://www.django-rest-framework.org/api-guide/viewsets/
+1. To handle GET, POST, PUT, DELETE with generic views is a bit repetitive and we end up with more classes/code. There is a better way to handle this using ViewSets.
+2. Django REST framework allows you to combine the logic for a set of related views in a single class, called a **ViewSet**. Thus a single class can handle all 4 request types. Thus, if app needs only one request type viz GET or POST: go for generic views. If app has requirement for all 4 request types: go for viewsets.
+3. Create ArticleViewSet class extending from viewsets.ModelViewSet.
+4. In urls.py use `DefaultRouter()` from restframework. 
+5. Test all 4 request types at: http://127.0.0.1:8000/api/articles/ and http://127.0.0.1:8000/api/articles/1/
