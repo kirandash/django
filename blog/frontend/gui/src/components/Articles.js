@@ -23,7 +23,7 @@ const IconText = ({ icon, text }) => (
     </Space>
 );
 
-const Article = (props) => {
+const Articles = (props) => {
     return (
         <List
             itemLayout="vertical"
@@ -68,4 +68,4 @@ const Article = (props) => {
     );
 }
 
-export default Article;
+export default Articles;

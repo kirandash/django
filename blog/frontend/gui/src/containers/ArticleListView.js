@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Article from '../components/Article';
+import Articles from '../components/Articles';
 
 class ArticleList extends React.Component{
     render() {
         return (
-            <Article/>
+            <Articles/>
         )
     }
 }
