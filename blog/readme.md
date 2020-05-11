@@ -118,6 +118,10 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 1. `python manage.py startapp articles`
 2. Add articles to list of INSTALLED_APPS in settings.py file.
 
+### 3.8 Requirements.txt to manage dependencies - BE
+1. At the end of the project: we can create a requirement.txt file to manage all our dependencies. `pip freeze > requirements.txt`
+2. And then on a different machine after cloning the project from git, we can create a new venv and run `pip install requirements.txt` to install all the dependencies.
+
 ## 4 React project setup - FE
 ### 4.1 Create React Project using create-react-app tool - FE
 1. **create-react-app** Create react app is a tool that helps us create a react app quickly so that we don't have to setup the project from scratch. Run the command: `cd frontend` & `npx create-react-app gui`. Note: We don't need the venv that we were using during django. Because all the packages we install in react will be installed at project level only. venv can be deactivated by running: `deactivate`. (blog_env) prompt will now disappear from terminal.
