@@ -105,7 +105,7 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 2. **Workspace Settings for VSCode**
     - `pip install pep8`, `pip install autopep8`, `pip install pylint`
     - Press Cmd + Shift + P: Open Workspace Settings (JSON)
-    - This will create .vscode/settings.json file for us. Move the folder to backend/ since we want the settings to be applied only for backend folder.
+    - This will create .vscode/settings.json file for us.
     - copy paste the setings from article.
     - Change `"python.linting.pylintPath": "pylint",`
 
@@ -120,7 +120,8 @@ https://automationpanda.com/2018/02/08/django-projects-in-visual-studio-code/
 
 ### 3.8 Requirements.txt to manage dependencies - BE
 1. At the end of the project: we can create a requirement.txt file to manage all our dependencies. `pip freeze > requirements.txt`
-2. And then on a different machine after cloning the project from git, we can create a new venv and run `pip install requirements.txt` to install all the dependencies.
+2. And then on a different machine after cloning the project from git, we can create a new venv, activate it and from the folder with requirements.txt file, run `pip install -r requirements.txt` to install all the dependencies.
+3. Test by deleting blog_env and create blog_venv.
 
 ## 4 React project setup - FE
 ### 4.1 Create React Project using create-react-app tool - FE
@@ -212,3 +213,39 @@ https://www.django-rest-framework.org/api-guide/serializers/
 1. use Link from react-router-dom.
 2. In backend/src/articles/api: add id so that id appears in JSON response.
 3. use that ID to navigate to articleDetails view.
+
+## 7 POST, PUT, DELETE requests - BE
+### 7.1 CreateAPIView, UpdateAPIView, DestroyAPIView - BE
+**Create new Article with POST using CreateAPIView**:
+https://www.django-rest-framework.org/api-guide/generic-views/#listapiview
+1. **ListAPIView**: Used for read-only endpoints to represent a collection of model instances. Thus can only be used for GET calls.
+2. Thus we must use a generic view that supports write features as well. Ex: **ListCreateAPIView**
+3. Or also we can use viewsets instead of generic views: to create GET, PUT, POST, DELETE all at once. 
+    - https://www.django-rest-framework.org/api-guide/viewsets/#modelviewset
+4. We will use **CreateAPIView**: 
+    - https://www.django-rest-framework.org/api-guide/generic-views/#createapiview
+    - Used for create-only endpoints.
+    - Provides a post method handler.
+5. src/articles/api/views.py: Create ArticleCreateView class inherited form CreateAPIView genericview.
+6. Add view to url: src/articles/api/urls.py file.
+7. Test the POST API endpoint at http://127.0.0.1:8000/api/create/ by creating a new article.
+
+**Update existing Article with PUT using UpdateAPIView**
+https://www.django-rest-framework.org/api-guide/generic-views/#updateapiview
+1. **UpdateAPIView**:
+    - Used for update-only endpoints for a single model instance.
+    - Provides put and patch method handlers.
+    - Extends: GenericAPIView, UpdateModelMixin
+2. src/articles/api/views.py: Create ArticleUpdateView class inherited from UpdateAPIView
+3. Add view to url: src/articles/api/urls.py file.
+4. Test PUT API at: http://127.0.0.1:8000/api/1/update/
+
+**Delete existing Article with DELETE using DestroyAPIView**
+https://www.django-rest-framework.org/api-guide/generic-views/#destroyapiview
+1. **UpdateAPIView**:
+    - Used for update-only endpoints for a single model instance.
+    - Provides put and patch method handlers.
+    - Extends: GenericAPIView, UpdateModelMixin
+2. src/articles/api/views.py: Create ArticleUpdateView class inherited from UpdateAPIView
+3. Add view to url: src/articles/api/urls.py file.
+4. Test DELETE API at: http://127.0.0.1:8000/api/2/delete/

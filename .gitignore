@@ -4,3 +4,4 @@ scrum_board_env
 node_modules
 build
 blog_env
+blog_venv
