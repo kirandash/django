@@ -262,3 +262,12 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 1. https://ant.design/components/form/
 2. Create components/Form.js
 3. Add CustomForm to ArticleListView.js and ArticleDetailView.js
+
+### 8.2 Handle post, put Request Type for Form submit - FE & BE
+1. Handle form submission in form.js based on request type.
+2. Send props to Form.js from ArticleDetailView.js and ArticleListView.js
+3. Test post and put from browser. It will fail with **403 Authentication error**.
+4. To fix this: go to backend/src/settings.py file: and remove rest framework permission and add allow any.
+    - Not recommended. Will add proper authentication later in a better way.
+    - https://www.django-rest-framework.org/api-guide/permissions/
+5. Test post and put requests from Frontend.

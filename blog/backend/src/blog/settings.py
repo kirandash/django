@@ -129,7 +129,10 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # rest framework APIs need Django permission. To outside environments it's on readonly.
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # allowing unrestricted access
+        'rest_framework.permissions.AllowAny',
     ]
 }
 

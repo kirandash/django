@@ -13,7 +13,7 @@ class ArticleDetail extends React.Component {
     componentDidMount() {
         const articleID = this.props.match.params.articleID; // To get articleID from Routes
         // Called every time the component is mounted
-        axios.get(`http://127.0.0.1:8000/api/${articleID}`)
+        axios.get(`http://127.0.0.1:8000/api/articles/${articleID}`)
             .then(res => {
                 this.setState({
                     article: res.data
@@ -29,7 +29,10 @@ class ArticleDetail extends React.Component {
                     <p>{this.state.article.content}</p>
                 </Card>
                 <br />
-                <CustomForm />
+                <CustomForm
+                    requestType='put'
+                    articleID={this.props.match.params.articleID}
+                    btnText='Update' />
             </div>
         )
     }
