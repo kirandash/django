@@ -15,7 +15,10 @@ const CustomForm = (props) => {
                     title: title,
                     content: content
                 })
-                    .then(res => console.log(res))
+                    .then(res => {
+                        console.log(res);
+                        window.location.reload(); // not recommended, better update using state
+                    })
                     .catch(err => console.log(err));
             case 'put':
                 return axios.put(`http://127.0.0.1:8000/api/articles/${props.articleID}/`, {

@@ -271,3 +271,6 @@ https://www.django-rest-framework.org/api-guide/viewsets/
     - Not recommended. Will add proper authentication later in a better way.
     - https://www.django-rest-framework.org/api-guide/permissions/
 5. Test post and put requests from Frontend.
+
+### 8.3 Handling Delete - FE
+1. Add another form for delete button.
