@@ -184,3 +184,16 @@ https://www.django-rest-framework.org/api-guide/serializers/
     - Copy ant design footer part. List into components/Article.js    
 7. Create a container ArticleListView.js to hold Article
 8. Add ArticleListView container to App.js Layout wrapper.
+
+### 6.2 Making API call to Django with Axios - FE and BE
+1. Install **axios**: `npm install axios` Note: with npm 5.0, --save is no more required. Since by default the package will be installed as a dependency. --save-dev or --save-optional are still valid to add the package under devDependencies or optionalDependencies.
+2. Add `axios.get` call to fetch API data. It will return blocked by CORS policy error.
+    - To **fix CORS error**: Go to backend code. Activate venv: `. backend/blog_env/bin/activate`
+    - Install django-cors-headers: https://github.com/adamchainz/django-cors-headers, Follow the instructions at this link.
+    - `python -m pip install django-cors-headers` or `pip install django-cors-headers`. It will add the corsheaders package to bin/lib
+    - Add `corsheaders` to list of `INSTALLED_APPS` in project settings.py file.
+    - Add `MIDDLEWARES` in settings.py file.
+    - Add `CORS_ORIGIN_ALLOW_ALL = True` to settings.py file.
+    - Now restart the python anr FE server. API call will be successful now.
+3. Pass the data to Articles component through props.
+4. Check output on FE.
