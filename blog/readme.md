@@ -203,3 +203,8 @@ https://www.django-rest-framework.org/api-guide/serializers/
 2. Install router: `npm install react-router-dom`: Helps us in redirecting b/w different components or pages.
 3. Create **src/routes.js** file. Will contain component BaseRouter for all the routes for our application which are mapped to their components.
 4. Add BaseRouter to App.js and add BrowserRouter.
+
+### 6.4 Add navigation links - FE, BE
+1. use Link from react-router-dom.
+2. In backend/src/articles/api: add id so that id appears in JSON response.
+3. use that ID to navigate to articleDetails view.

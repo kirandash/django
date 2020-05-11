@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { Card } from 'antd'; // https://ant.design/components/card/
 
-class ArticleDetail extends React.Component{
+class ArticleDetail extends React.Component {
 
     state = {
         article: []
