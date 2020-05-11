@@ -197,3 +197,9 @@ https://www.django-rest-framework.org/api-guide/serializers/
     - Now restart the python anr FE server. API call will be successful now.
 3. Pass the data to Articles component through props.
 4. Check output on FE.
+
+### 6.3 Creating Article Details View and react-router-dom - FE
+1. Create container ArticleDetailView.js file.
+2. Install router: `npm install react-router-dom`: Helps us in redirecting b/w different components or pages.
+3. Create **src/routes.js** file. Will contain component BaseRouter for all the routes for our application which are mapped to their components.
+4. Add BaseRouter to App.js and add BrowserRouter.
