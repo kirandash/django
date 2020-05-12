@@ -310,3 +310,8 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 5. dispatch authLogin from login component.
     - Note: right now login API is not created in backend yet. So it will throw 404 error. We will create that later.
 
+### 9.4 Create SignUp Component
+1. Create containers/Singup Component
+    - Copy code for registration form from https://ant.design/components/form/
+2. Add component to signup route in src/routes.js file.
+3. Also add logout method to containers/Layout.js component file.
