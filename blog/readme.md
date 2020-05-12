@@ -295,3 +295,15 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 ### 9.2 autoSignup with authCheckState action - FE
 1. Add connect from react-redux to App component.
 2. Create authCheckState action in actions/auth.js file to keep checking for authentication if app reloads.
+
+### 9.3 Create Login Component
+1. Create containers/Login component
+    - Form code copied from https://ant.design/components/form/ - Login Form
+    - Spinner code copied from https://ant.design/components/spin/
+    - Add errorMessage from props. (If auth fails)
+2. Add component to login route in src/routes.js file.
+3. Can test the Login feature by settings isLoading from dev tools
+    - Go to chrome dev tools - Profiler tab
+    - Search for Login component. On right side we can see all the props being passed to login component.
+    - Change loading to true from false and we will be able to see the Loader.
+4. Also we will change articles path in routes.js and Aritcle.js to /articles/articleID
