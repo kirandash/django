@@ -307,3 +307,6 @@ https://www.django-rest-framework.org/api-guide/viewsets/
     - Search for Login component. On right side we can see all the props being passed to login component.
     - Change loading to true from false and we will be able to see the Loader.
 4. Also we will change articles path in routes.js and Aritcle.js to /articles/articleID
+5. dispatch authLogin from login component.
+    - Note: right now login API is not created in backend yet. So it will throw 404 error. We will create that later.
+
