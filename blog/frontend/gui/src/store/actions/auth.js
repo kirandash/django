@@ -83,3 +83,20 @@ export const authSignup = (username, email, password1, password2) => { // By def
             });
     }
 }
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (token === undefined) {
+            dispatch(logout())
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            if (expirationDate <= new Date()) { // If expirationDate is before today
+                dispatch(logout());
+            } else {
+                dispatch(authSuccess(token));
+                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000))
+            }
+        }
+    }
+}

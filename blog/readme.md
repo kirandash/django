@@ -276,7 +276,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 1. Add another form for delete button.
 
 ## 9. Authenticate Users with React and Django - FE
-### 9.1 Setup Redux - actions, reducers, store. and Thunks for API calls
+### 9.1 Setup Redux - actions, reducers, store. and Thunks for API calls - FE
 1. Redux ---> Store + Action + Reducers. Store: Central state of our application. Used to save data for app usage.
     - Install: `npm i redux`,
     - `npm i react-redux`: to integrate react with redux
@@ -291,3 +291,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 5. store/utility.js: contains code for updatingObject
 6. Add the reducer to createStore fn in index.js. (Create separate store.js file in future projects)
 7. Provide the store to App component in index.js
+
+### 9.2 autoSignup with authCheckState action - FE
+1. Add connect from react-redux to App component.
+2. Create authCheckState action in actions/auth.js file to keep checking for authentication if app reloads.
