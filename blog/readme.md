@@ -274,3 +274,20 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 
 ### 8.3 Handling Delete - FE
 1. Add another form for delete button.
+
+## 9. Authenticate Users with React and Django - FE
+### 9.1 Setup Redux - actions, reducers, store. and Thunks for API calls
+1. Redux ---> Store + Action + Reducers. Store: Central state of our application. Used to save data for app usage.
+    - Install: `npm i redux`,
+    - `npm i react-redux`: to integrate react with redux
+    - `npm i redux-thunk`: to handle API calls
+    - shortcut: `npm i redux react-redux redux-thunk`
+2. Create src/store/actions and reducers/ folder.
+3. actions/: all actions or events to happen in our app which will change the store data.
+    - actionTypes.js: to create constants so that we don't have to type strings all the time. To avoid typos.
+    - auth.js
+4. reducers/: defines what change to be done to the store whenever an action occurs.
+    - auth.js
+5. store/utility.js: contains code for updatingObject
+6. Add the reducer to createStore fn in index.js. (Create separate store.js file in future projects)
+7. Provide the store to App component in index.js
