@@ -19,6 +19,9 @@ from django.urls import include, path
 urlpatterns = [
     # If you're intending to use the browsable API you'll probably also want to add REST framework's login and logout views.
     path('api-auth/', include('rest_framework.urls')),
+    path('rest-auth/', include('rest_auth.urls')),
+    # For registration using django-allauth
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('articles.api.urls')),
 ]

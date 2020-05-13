@@ -275,7 +275,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 ### 8.3 Handling Delete - FE
 1. Add another form for delete button.
 
-## 9. Authenticate Users with React and Django - FE
+## 9. Authenticate Users with React and Django - FE and BE
 ### 9.1 Setup Redux - actions, reducers, store. and Thunks for API calls - FE
 1. Redux ---> Store + Action + Reducers. Store: Central state of our application. Used to save data for app usage.
     - Install: `npm i redux`,
@@ -296,7 +296,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 1. Add connect from react-redux to App component.
 2. Create authCheckState action in actions/auth.js file to keep checking for authentication if app reloads.
 
-### 9.3 Create Login Component
+### 9.3 Create Login Component - FE
 1. Create containers/Login component
     - Form code copied from https://ant.design/components/form/ - Login Form
     - Spinner code copied from https://ant.design/components/spin/
@@ -310,8 +310,31 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 5. dispatch authLogin from login component.
     - Note: right now login API is not created in backend yet. So it will throw 404 error. We will create that later.
 
-### 9.4 Create SignUp Component
+### 9.4 Create SignUp Component - FE
 1. Create containers/Singup Component
     - Copy code for registration form from https://ant.design/components/form/
 2. Add component to signup route in src/routes.js file.
 3. Also add logout method to containers/Layout.js component file.
+
+### 9.5 Create login and registration API endpoints in Django using django-rest-auth - BE
+1. Install **django-rest-auth**: A package that converts Django's default oAuth library into an API and serves that as endpoints. Thus, it automatically creates views and urls to handle authentication.
+    - https://django-rest-auth.readthedocs.io/en/latest/installation.html (Follow the instructions here)
+    - Dependent on django-rest-framework library (already installed)
+    - From venv: `pip install django-rest-auth`
+    - Add `'rest_framework.authtoken','rest_auth'` to INSTALLED_APPS in src/blog/settings.py file.
+    - Add `path('rest-auth/', include('rest_auth.urls')),` to urlpatterns in src/blog/urls.py file.
+    - Run Migration: `python manage.py migrate`
+2. Adding Registration Feature using **djago-allauth**:
+    - By default registration functinality is not included. Since we need registration, we will need another package: `pip install django-allauth` and follow the remaining steps from url. Extra: Add `'allauth.socialaccount',` to list of INSTALLED_APPS.
+    - Run Migration: `python manage.py migrate`
+    - Run server
+    - Check login at: http://127.0.0.1:8000/rest-auth/login/ - it won't work. as it has email as mandatory. To make it optional: let's add additional settings.
+    - We can add additinal settings: https://django-allauth.readthedocs.io/en/latest/configuration.html
+    - Add `ACCOUNT_EMAIL_VERIFICATION` to settings.py file
+    - Check login at: http://127.0.0.1:8000/rest-auth/login/ - try logging in with admin details.
+3. To understand more about how django-rest-auth urls and views are created: checkout the demo project at: https://django-rest-auth.readthedocs.io/en/latest/demo.html
+    - All code can be found at: rest_auth/ folder - urls.py and views.py file
+    - registration related code at: rest_auth/registration/ files
+4. After registering few users: all tokens for respective users can be checked at:
+    - http://127.0.0.1:8000/admin/authtoken/token/
+    - all users can be checked at: http://127.0.0.1:8000/admin/auth/user/

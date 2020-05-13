@@ -16,10 +16,8 @@ const CustomLayout = (props) => {
 
                     {
                         props.isAuthenticated ?
-                            <Menu.Item key="2">
-                                <Link onClick={props.logout()}>
-                                    Logout
-                                </Link>
+                            <Menu.Item key="2" onClick={props.logout}>
+                                Logout
                             </Menu.Item>
 
                             :
@@ -47,7 +45,7 @@ const CustomLayout = (props) => {
                 <div className="site-layout-content">{props.children}</div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Blog ©2020 Created by Kiran Dash</Footer>
-        </Layout>
+        </Layout >
     );
 };
 

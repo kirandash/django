@@ -39,10 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+
+    # For django-rest-auth
+    'rest_framework.authtoken',
+    'rest_auth',
+
+    # For sign up using django-allauth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
+
+    # For cors-headers
     'corsheaders',
 
     'articles',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -137,3 +152,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# django-allauth advanced setting to make email verification optional
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
