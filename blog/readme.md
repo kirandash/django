@@ -338,3 +338,54 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 4. After registering few users: all tokens for respective users can be checked at:
     - http://127.0.0.1:8000/admin/authtoken/token/
     - all users can be checked at: http://127.0.0.1:8000/admin/auth/user/
+5. Freeze requirements after finishing project: `pip freeze > requirements.txt`
+
+## 10 Deploy Django - React App with Heroku
+### 10.1 Steps to deploy Django App in Heroku
+**Setup**
+1. Sign up and go to heroku dashboard: https://dashboard.heroku.com/apps
+2. Create a new app
+3. Select an available name: blog-django-react-app ---> Next
+4. Follow instructions given in the deploy tab
+5. Install heroku on mac: `brew tap heroku/brew && brew install heroku`
+    - https://devcenter.heroku.com/articles/heroku-cli
+6. Enter `heroku login` in terminal and hit enter. Login in browser and go back to terminal.
+7. Copy blog folder code to a separate directory where we can create a new git repo.
+8. `cd ~/Desktop/test/blog/`
+9. `git init`
+10. `heroku git:remote -a blog-django-react-app`
+
+**Buildpacks for Servers**
+11. Create **buildpacks** for python and node servers
+    - Python: `heroku buildpacks:set heroku/python`
+    - Add node to existing build pack at index 1: `heroku buildpacks:add --index 1 heroku/nodejs`
+
+**Reorganizing Folders and Files**
+1. We will have to reorganize our files as per heroku's settings.
+2. Move all code from frontend/gui/ folder to root and then delete the frontend/ and frontend/gui/ folders.
+3. Move requirements.txt from backend/src folder to root.
+4. Rename backend/src folder to backend/blog_project
+5. Move blog_project/ folder to root
+6. Delete backend folder
+7. Move all content of blog_project/ to root and delete blog_project folder.
+8. Check node, npm version we used in our project with `node -v`, `npm -v` and add that to **engines** info in package.json.
+9. Create **procfile** with no extension in root. This will serve as a config file for heroku app. Add commands for each processes in procfile.
+    - `release: python manage.py migrate`. With every release, we will run the migrate command.
+    - `web: gunicorn blog.wsgi --log-file -`. This command makes sure that our app is available for web through http server.
+10. Add **gunicorn** to requirements.txt file. Provides the http server.
+11. Add whitenoise to requirements.txt file. Helps with serving static files.
+12. Add runtime.txt file for running python server. Mention latest version: 3.8.2 for now
+    - https://www.python.org/downloads/
+13. Add STATIC_ROOT & STATIC_STORAGE to blog/settings.py file
+14. import whitenoise in blog/wsgi file
+15. Add app name `blog-django-react-app.herokuapp.com` of heroku to ALLOWED_HOSTS in blog/settings.py file.
+16. Remove yarn.lock file to fix clash b/w package.lock and yarn.lock.
+17. `git add .` , `git commit -m ""` and `git push heroku master`
+18. Check if build is successful
+19. Lets do frontend build `npm i`. if any vulenrability is there. Fix by running `npm audit fix`. And create build by `npm run build`
+20. Add build path to DIRS list in TEMPLATES of blog/settings.py file.
+21. `"postinstall": "npm run build"` add this to package.json file so after every installation, heroku will automatically build the files for us.
+22. add index.html to blog/urls.py file
+23. **Rename procfile to Procfile**. To avoid utf-8 error. If error still persists, remove git repo. delete app. create new app and publish.
+24. Add STATIC_DIRS to blog/settings.py file
+25. git push heroku master
