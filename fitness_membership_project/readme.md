@@ -24,3 +24,10 @@
 1. Add link to checkout page with monthly or yearly plan as query in join.html.
 2. Also, every time user does checkout we will have to create another model called Customer. Add class Customer in plans/models.py file.
 3. Migrate: `python manage.py makemigrations` & `python manage.py migrate`
+
+### 2.2 Checkout page
+1. Should restrict access to checkout page for logged out users.
+2. open plans/views.py file and add @login_required from django auth before checkout view. Now user will be redirected if trying to access to checkout page. 
+3. Also add code in checkout view to redirect to home page after payment is made.
+4. Add publishable_key from stripe dashboard to checkout.html
+5. Test payment: Card: 4242 4242 4242 4242, Expiry: 02/22, CVC: 222
