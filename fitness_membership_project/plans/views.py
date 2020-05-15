@@ -35,6 +35,7 @@ def checkout(request):
         return redirect('home')
     else:
         # Default monthly plan values while passing data to checkout page
+        plan = 'monthly'
         coupon = 'none'
         price = 1000  # in cents - 10 dollars
         og_dollar = 10  # original dollar amount
@@ -42,7 +43,7 @@ def checkout(request):
         final_dollar = 10
         if request.method == 'GET' and 'plan' in request.GET:
             # Default yearly plan values while passing data to checkout page
-            if request.GET('plan') == 'yearly':
+            if request.GET['plan'] == 'yearly':
                 plan = 'yearly'
                 price = 10000
                 og_dollar = 100

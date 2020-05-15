@@ -37,3 +37,7 @@
 2. Secret keys should be in views.py file and not html. Since it should not be seen to public.
 3. Add secret key to plans/views.py file
 4. Also pass default values to checkout page.
+
+### 2.4 Display received data in checkout.html
+1. `{{ plan|title }}` etc.
+2. Test at: http://127.0.0.1:8000/checkout?plan=monthly and http://127.0.0.1:8000/checkout?plan=yearly. Note: http://127.0.0.1:8000/checkout for no params passed, we will get default plan as monthly. As mentioned in views.py file.
