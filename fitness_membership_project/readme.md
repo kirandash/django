@@ -31,3 +31,9 @@
 3. Also add code in checkout view to redirect to home page after payment is made.
 4. Add publishable_key from stripe dashboard to checkout.html
 5. Test payment: Card: 4242 4242 4242 4242, Expiry: 02/22, CVC: 222
+
+### 2.3 Stripe Secret key and Passing default data to checkout page
+1. Note: Publishable key is for testing card payments. To access stripe via API we will need the secret key.
+2. Secret keys should be in views.py file and not html. Since it should not be seen to public.
+3. Add secret key to plans/views.py file
+4. Also pass default values to checkout page.
