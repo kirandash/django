@@ -10,3 +10,17 @@
 6. **Import data**: `python manage.py loaddata plans.json`
 7. Run server: `python manage.py runserver`
 8. Current code has login, logout, page navigation etc already setup.
+
+### 1.2 Stripe Account
+1. Register at https://dashboard.stripe.com/register
+2. Finish the steps to land on dashboard: https://dashboard.stripe.com/test/dashboard
+
+### 1.3 Create Stripe Product
+1. From dashboard: create a new product "Fitness Premium" with monthly charges.
+2. Create another product "Fitness Premium - Yearly" with yearly subscription.
+
+## 2. Checkout Basics
+### 2.1 Select Yearly or Monthly plan, Create Customer Model for checkout
+1. Add link to checkout page with monthly or yearly plan as query in join.html.
+2. Also, every time user does checkout we will have to create another model called Customer. Add class Customer in plans/models.py file.
+3. Migrate: `python manage.py makemigrations` & `python manage.py migrate`
